@@ -1,4 +1,6 @@
 #!python3
+import json
+
 import Player, Location
 from Player import Player
 from Location import Location
@@ -10,8 +12,12 @@ class Game(object):
             "exit" : self._quit,
             "quit" : self._quit
         }
-        self._locations["first_room"] = Location("first_room", {'n' : "second_room"}, "this is the long description of first_room", "short desc of first_room")
-        self._locations["second_room"] = Location("second_room", {'s' : "first_room"}, "this is the long description of second_room", "short desc of second_room")
+
+	try:
+            self._locations = json.loads(open('locations.json'))
+        except Exception, e:
+            print 'Error parsing locations.json'
+
         self._player = Player("player", self._locations, self._locations["first_room"])
 
     def command(self):

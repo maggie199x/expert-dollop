@@ -1,0 +1,20 @@
+{
+    "first_room": {
+        "tag": "first_room",
+        "short_description": "first_room short description",
+        "long_description": "first_room long description",
+        "connections": {
+            "n": "second_room"
+        },
+        "inventory": []
+    },
+    "second_room": {
+        "tag": "second_room",
+        "short_description": "second_room short description",
+        "long_description": "second_room long description",
+        "connections": {
+            "s": "first_room"
+        },
+        "inventory": []
+    }
+}
