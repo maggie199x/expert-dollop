@@ -7,8 +7,8 @@ from GameObject import GameObject
 
 
 class Player(GameObject):
-    def __init__(self, tag, loc_dict, loc, inv):
-        super().__init__(tag, "ldesc of player", "sdesc of player", inv)
+    def __init__(self, **kwargs):
+        super().__init__(kwargs)
         '''
         try:
             self.react = reactionMap[tag]
@@ -16,13 +16,12 @@ class Player(GameObject):
             print("""Created GameObject has no appropriate reaction function
                  , closing system""")
             sys.exit(1) #abort'''
-        self._location = loc
-        self._map = loc_dict
+        self._location = kwargs["location"]
 
     def _move(self, dir):
         print("Player::_move")
         if dir in self._location._connections:
-            self._location = self._map[self._location._connections[dir]]
+            self._location = self._ObjDict["location"][self._location._connections[dir]]
             if self._location._visited: print(self._location._sDesc)
             else:
                 self._location._visited = True
@@ -35,5 +34,5 @@ class Player(GameObject):
             self._move(command[1])
 
     _location = None
-    _map = None
+    _objDict = None
     

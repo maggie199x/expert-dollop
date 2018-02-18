@@ -12,13 +12,25 @@ class Game(object):
             "exit" : self._quit,
             "quit" : self._quit
         }
+        try:
+            with open("GameObjects.json", 'r') as f:
+                allObj = json.load(f)
+                for location in allObj["locations"]:
+                    tag = locations["tag"]
+                    self._locations[tag] = Location(location)
 
-	try:
-            self._locations = json.loads(open('locations.json'))
+                for player in allObj["locations"]:
+                    tag = locations["tag"]
+                    self._locations[tag] = Location(location)
+
+                self._locations = allObj["locations"]
+                self._player = Player(allObj["player"][""])
+                self._player = allObj["player"]["player"]
+                self._player._objectDict = allObj
         except Exception, e:
-            print 'Error parsing locations.json'
-
-        self._player = Player("player", self._locations, self._locations["first_room"])
+            print "Error parsing GameObjects.json: %s" % e
+            self._running = False
+        
 
     def command(self):
         self._command = raw_input("@> ").lower().split()

@@ -1,29 +1,14 @@
 #!python3
 import sys, traceback
 
-def tester():
-    print("tester successful")
-
-def player(command):
-    pass
-
-
-
-
-    
-
-reactionMap = {}
-reactionMap["player"] = tester
-reactionMap["first_room"] = tester
-reactionMap["second_room"] = tester
-
-
 class GameObject(object):
-    def __init__(self, tag, lDesc, sDesc, inv):
-        self._tag = tag
-        self._lDesc = lDesc
-        self._sDesc = sDesc
-        self._inv = inv
+    def __init__(self, **kwargs):
+        for i in kwargs:
+
+            self._tag = kwargs["tag"]
+            self._lDesc = kwargs["long_description"]
+            self._sDesc = kwargs["short_description"]
+            self._inv = kwargs["inventory"]
 
     
     def give_item(self, tag):
