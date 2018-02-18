@@ -7,8 +7,8 @@ from GameObject import GameObject
 
 
 class Player(GameObject):
-	def __init__(self, tag, loc_dict, loc):
-		super(Player, self).__init__(tag, "ldesc of player", "sdesc of player")
+	def __init__(self, tag, loc_dict, loc, inv):
+		super(Player, self).__init__(tag, "ldesc of player", "sdesc of player", inv)
 		'''
 		try:
 			self.react = reactionMap[tag]
@@ -28,13 +28,12 @@ class Player(GameObject):
 		 		self._location._visited = True
 		 		print(self._location._lDesc)
 			
-		return
 
 	def react(self, command):
 		print("Player::player_action")
 		if command[0] == 'm' and len(command) == 2:
 			self._move(command[1])
-		return
+
 	_location = None
 	_map = None
 	

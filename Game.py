@@ -13,7 +13,6 @@ class Game(object):
 		self._locations["first_room"] = Location("first_room", {'n' : "second_room"}, "this is the long description of first_room", "short desc of first_room")
 		self._locations["second_room"] = Location("second_room", {'s' : "first_room"}, "this is the long description of second_room", "short desc of second_room")
 		self._player = Player("player", self._locations, self._locations["first_room"])
-		return
 
 	def command(self):
 		self._command = raw_input("@> ").lower().split()
@@ -21,7 +20,6 @@ class Game(object):
 		if self._command[0] in self._Player_action_queue: self._player_action()
 		if self._command[0] in self._reactionMap:
 			self._reactionMap[self._command[0]]()
-		return
 
 	def run(self):
 		while(self._running):
@@ -31,9 +29,12 @@ class Game(object):
 		print("Game::player_action")
 		return self._player.react(self._command)
 
+	def _inclusive_action(self):
+		print("Game::inclusive_action")
+
+
 	def exit_game(self):
 		self._running = False
-		return
 
 	def player(): #return player
 		return
@@ -46,7 +47,7 @@ class Game(object):
 	def _quit(self):
 		self._running = False
 		print("quitting")
-		return
+
 
 	#members
 	_reactionMap = {}
@@ -62,7 +63,6 @@ class Game(object):
 def main():
         game = Game()
         game.run()
-        return
 
 main()
 
