@@ -8,7 +8,7 @@ from GameObject import GameObject
 
 class Player(GameObject):
     def __init__(self, tag, loc_dict, loc, inv):
-        super(Player, self).__init__(tag, "ldesc of player", "sdesc of player", inv)
+        super().__init__(tag, "ldesc of player", "sdesc of player", inv)
         '''
         try:
             self.react = reactionMap[tag]
