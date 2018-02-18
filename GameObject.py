@@ -7,6 +7,11 @@ def tester():
 def player(command):
 	pass
 
+
+
+
+	
+
 reactionMap = {}
 reactionMap["player"] = tester
 reactionMap["first_room"] = tester
