@@ -2,8 +2,8 @@
   "player": {
     "player": {
       "tag": "player",
-      "short_description": "first_room short description",
-      "long_description": "first_room long description",
+      "short_description": " this is first_room short description",
+      "long_description": "this is first_room long description",
       "inventory": []
     }
   },

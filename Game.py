@@ -15,18 +15,19 @@ class Game(object):
         try:
             with open("GameObjects.json", 'r') as f:
                 allObj = json.load(f)
+                #print(allObj)
                 for location in allObj["locations"]:
-                    tag = locations["tag"]
-                    self._locations[tag] = Location(location)
+                    tag = location
+                    #print(allObj["locations"][tag])
+                    self._locations[tag] = Location(allObj["locations"][tag])
 
-                for player in allObj["locations"]:
-                    tag = locations["tag"]
-                    self._locations[tag] = Location(location)
-
+                #for player in allObj["locations"]: pass
+                    #self._player = Player(player)
+                '''
                 self._locations = allObj["locations"]
                 self._player = Player(allObj["player"][""])
                 self._player = allObj["player"]["player"]
-                self._player._objectDict = allObj
+                self._player._objectDict = allObj'''
         except Exception, e:
             print "Error parsing GameObjects.json: %s" % e
             self._running = False
