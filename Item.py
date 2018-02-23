@@ -1,4 +1,4 @@
-#!python3
+#!/usr/local/Cellar/python3
 import GameObject
 from GameObject import GameObject
 

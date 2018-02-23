@@ -1,5 +1,6 @@
-#!python3
+#!/usr/local/Cellar/python3
 import json
+import platform
 
 import Player, Location
 from Player import Player
@@ -18,8 +19,9 @@ class Game(object):
                 #print(allObj)
                 for location in allObj["locations"]:
                     tag = location
-                    #print(allObj["locations"][tag])
-                    self._locations[tag] = Location(allObj["locations"][tag])
+                    #print(allObj["locations"][tag]["tag"])
+                    #print("------------------------------")
+                    self._locations[tag] = Location(**(allObj["locations"][tag]))
 
                 #for player in allObj["locations"]: pass
                     #self._player = Player(player)
@@ -28,13 +30,13 @@ class Game(object):
                 self._player = Player(allObj["player"][""])
                 self._player = allObj["player"]["player"]
                 self._player._objectDict = allObj'''
-        except Exception, e:
-            print "Error parsing GameObjects.json: %s" % e
+        except e:
+            print("Error parsing GameObjects.json: %s" % e)
             self._running = False
         
 
     def command(self):
-        self._command = raw_input("@> ").lower().split()
+        self._command = input("@> ").lower().split()
         print(self._command)
         if self._command[0] in self._Player_action_queue: self._player_action()
         if self._command[0] in self._reactionMap:
@@ -80,6 +82,7 @@ class Game(object):
     _moveAlias = ["go", "move"]
 
 def main():
+        print(platform.python_version())
         game = Game()
         game.run()
 
