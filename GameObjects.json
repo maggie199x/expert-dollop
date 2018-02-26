@@ -4,7 +4,8 @@
       "tag": "player",
       "short_description": " this is first_room short description",
       "long_description": "this is first_room long description",
-      "inventory": []
+      "inventory": [],
+      "location": "first_room"
     }
   },
   "locations": {
@@ -24,7 +25,21 @@
       "connections": {
         "s": "first_room"
       },
-      "inventory": []
+      "inventory": [],
+      "barriers": {}
+    }
+  },
+  "barriers": {
+    "old_door": {
+      "tag": "old_door",
+      "short_description": "A* oak door",
+      "long_description": "A sturdy oak door currently *",
+      "location": "first_room",
+      "connection_num": 2,
+      "connections": [
+        "n",
+        "s"
+      ]
     }
   }
 }

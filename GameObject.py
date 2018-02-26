@@ -3,13 +3,12 @@ import sys, traceback
 
 class GameObject(object):
     def __init__(self, **kwargs): 
-        print(sys.version)
-        #print(tag)
-        '''
+        #print(kwargs["tag"])
+        
         self._tag = kwargs["tag"]
         self._lDesc = kwargs["long_description"]
         self._sDesc = kwargs["short_description"]
-        self._inv = kwargs["inventory"] '''
+        if "inventory" in kwargs: self._inv = kwargs["inventory"] 
 
     
     def give_item(self, tag):
