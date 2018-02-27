@@ -1,9 +1,14 @@
 #!/usr/local/Cellar/python3
+import json
+import logging
+
 from pprint import pprint
 
 import GameObject
 from GameObject import GameObject
 from Barrier import Barrier
+
+log = logging.getLogger('game.Location')
 
 reactionMap = {}
 
@@ -20,9 +25,15 @@ class Location(GameObject):
 
     def __init__(self, **kwargs): 
         super(Location, self).__init__(**kwargs)
+
+        log.info("New Location Created: {}".format(kwargs["tag"]))
+
         self._connections = kwargs["connections"]
         self._barriers = {}
+        self._visited = False
          
+    def __str__(self):
+        return json.dumps(self.__dict__)
 
     def give_barrier(self, barrier, direction):
         self._inventory.append(barrier._tag)
@@ -36,8 +47,3 @@ class Location(GameObject):
 
             return reactionMap[self._tag](player, self, direction)
         return "there's nothing but death that way"
-
-    _connections = None
-    _barriers = None
-    _visited = False
-

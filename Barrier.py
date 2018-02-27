@@ -1,6 +1,11 @@
 #!/usr/local/Cellar/python3
+import json
+import logging
+
 import GameObject
 from GameObject import GameObject
+
+log = logging.getLogger('game.Barrier')
 
 reactionMap = {}
 
@@ -25,14 +30,17 @@ reactionMap["old_door"] = old_door
 
 class Barrier(GameObject):
     def __init__(self, **kwargs): 
-        #pass
-        #print(kwargs)
+
+        log.info("New Barrier Created: {}".format(kwargs["tag"]))
         self._connections = kwargs["connections"]
         self._location = kwargs["location"]
         self._connectionNum = kwargs["connection_num"]
         if "open" in kwargs: self._open = kwargs["open"]
 
         super(Barrier, self).__init__(**kwargs)
+
+    def __str__(self):
+        return json.dumps(self.__dict__)
 
     def react(self, player, action):
         #print("react::" + self._tag)
