@@ -2,7 +2,9 @@
 import json
 import logging
 
-import GameObject
+import settings
+from util import console_color
+
 from GameObject import GameObject
 
 log = logging.getLogger('game.Barrier')
@@ -31,7 +33,7 @@ reactionMap["old_door"] = old_door
 class Barrier(GameObject):
     def __init__(self, **kwargs): 
 
-        log.info("New Barrier Created: {}".format(kwargs["tag"]))
+        log.info(console_color("purple","New Barrier Created: {}".format(kwargs["tag"])))
         self._connections = kwargs["connections"]
         self._location = kwargs["location"]
         self._connectionNum = kwargs["connection_num"]

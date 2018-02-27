@@ -2,7 +2,10 @@
 import json
 import logging
 
-import GameObject
+import settings
+
+from util import console_color
+
 from GameObject import GameObject
 
 log = logging.getLogger('game.Player')
@@ -12,7 +15,7 @@ class Player(GameObject):
     def __init__(self, objDict, **kwargs):
         super(Player, self).__init__(**kwargs)
 
-        log.info("New Player Created: {}".format(objDict))
+        log.info(console_color("red", "New Player Created: {}".format(objDict)))
 
         self._objDict = objDict
         self._location = self._objDict[kwargs["location"]]

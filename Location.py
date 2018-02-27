@@ -2,7 +2,8 @@
 import json
 import logging
 
-from pprint import pprint
+import settings
+from util import console_color
 
 import GameObject
 from GameObject import GameObject
@@ -26,7 +27,7 @@ class Location(GameObject):
     def __init__(self, **kwargs): 
         super(Location, self).__init__(**kwargs)
 
-        log.info("New Location Created: {}".format(kwargs["tag"]))
+        log.info(console_color("green","New Location Created: {}".format(kwargs["tag"])))
 
         self._connections = kwargs["connections"]
         self._barriers = {}
