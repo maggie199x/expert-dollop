@@ -15,7 +15,7 @@ class Player(GameObject):
         if direction in self._location._barriers:
             if self._location._barriers[direction]._open: 
                 self._location = self._objDict[self._location._connections[direction]] #give player new location
-                return self._location.react(self, ["visit"])
+                return self._location.react(self, ["m", direction])
 
             else: return self._location._barriers[direction]._sDesc
 

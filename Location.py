@@ -10,7 +10,16 @@ reactionMap = {}
 
 
 def second_room(location, player, command):
-    if command[0] in location.baseMap: return location.baseMap[command[0]](location)
+    print(command)
+    result = ""
+    if command[0] in location.baseMap: 
+        if command[0] == "m":
+            if command[0] == "n":
+                location._barriers["s"]._open = False
+                result = "The door slams shut behind you."
+                print("yas")
+        print(location.baseMap[command[0]](location) + result)
+    else: return "error"
 
 def first_room(location, player, command):
     if command[0] in location.baseMap: return location.baseMap[command[0]](location)
@@ -44,14 +53,15 @@ class Location(GameObject):
         return self._connections[direction]
 
     def player_move(self, player, direction):
+        '''
         if direction in self._connections:
             if direction in self._barriers:
                 return self._barriers[direction].react(player, ["m", direction])
 
             return reactionMap[self._tag](player, self, direction)
-        return "there's nothing but death that way"
+        return "there's nothing but death that way" '''
 
-    baseMap = { "visit" : visit }
+    baseMap = { "m" : visit }
     _connections = None
     _barriers = None
     _visited = False

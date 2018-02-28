@@ -12,9 +12,10 @@ IE. the player moves into a new room, and the door shuts behind him. '''
 
 reactionMap = {}
 
-def old_door(barrier, player, action):
+def old_door(barrier, player, command):
     #print("old_door::reaction")
     #print(action)
+    ''' Not sure that this is necessary anymore 
     if action[0] == "m":
         if barrier._open:
             player._location = barrier._connections[action[1]]
@@ -24,8 +25,8 @@ def old_door(barrier, player, action):
                 return player._location._lDesc
 
         return barrier._lDesc
-    
-    if action[0] == "open":
+    '''
+    if command[0] == "open":
         return barrier.open()
 
 
