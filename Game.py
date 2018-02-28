@@ -20,7 +20,7 @@ class Game:
     """
     def __init__(self):
 
-        log.info(console_color("New Game Started", color="black", background="green"))
+        log.info(console_color("New Game Started", color="black", background="red"))
 
         # Mapping of input commands to functions
         self.reactionMap = {
@@ -39,14 +39,16 @@ class Game:
             "o":    "open",
         }
 
+        # Initialize variables
         self.running = True
-
         self.player_input = None
-
         self.player = None
         self.locations = {}
         self.barriers = {}
+
+        ## Initialize the Game (loading screen?)
         self._initialize_objects()
+        #clear_screen()
 
     def run(self):
         while(self.running):
