@@ -27,7 +27,7 @@ class Location(GameObject):
     def __init__(self, **kwargs): 
         super(Location, self).__init__(**kwargs)
 
-        log.info(console_color("green","New Location Created: {}".format(kwargs["tag"])))
+        log.info(console_color("New Location Created: {}".format(kwargs["tag"]), color="green"))
 
         self._connections = kwargs["connections"]
         self._barriers = {}

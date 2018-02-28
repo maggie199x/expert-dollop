@@ -33,7 +33,7 @@ reactionMap["old_door"] = old_door
 class Barrier(GameObject):
     def __init__(self, **kwargs): 
 
-        log.info(console_color("purple","New Barrier Created: {}".format(kwargs["tag"])))
+        log.info(console_color("New Barrier Created: {}".format(kwargs["tag"]), color="purple"))
         self._connections = kwargs["connections"]
         self._location = kwargs["location"]
         self._connectionNum = kwargs["connection_num"]

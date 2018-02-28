@@ -15,7 +15,7 @@ class Player(GameObject):
     def __init__(self, objDict, **kwargs):
         super(Player, self).__init__(**kwargs)
 
-        log.info(console_color("red", "New Player Created: {}".format(objDict)))
+        log.info(console_color("New Player Created: {}".format(objDict), color="red"))
 
         self._objDict = objDict
         self._location = self._objDict[kwargs["location"]]

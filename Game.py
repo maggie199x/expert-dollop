@@ -1,4 +1,5 @@
 #!/usr/local/Cellar/python3
+import argparse
 import json
 import platform
 import logging
@@ -10,8 +11,6 @@ from Player import Player
 from Location import Location
 from Barrier import Barrier
 
-
-
 # Set up logging
 log = logging.getLogger('game.Game')
 
@@ -20,6 +19,8 @@ class Game:
         The Game.
     """
     def __init__(self):
+
+        log.info(console_color("New Game Started", color="blue", background="lightgrey"))
 
         # Mapping of input commands to functions
         self.reactionMap = {
@@ -133,7 +134,14 @@ def main():
     console.setLevel(logging.INFO)
     console_log_formatter = logging.Formatter(settings.LOG_FORMAT)
     console.setFormatter(console_log_formatter)
-    logging.getLogger('').addHandler(console)
+
+    # Parse command line args
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-d", "--debug", action="store_true", help="Enable Debug Mode")
+    args = parser.parse_args()
+    if args.debug:
+        # Add console logging
+        logging.getLogger('').addHandler(console)
 
     # Run the Game
     game = Game()
