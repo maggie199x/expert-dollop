@@ -1,6 +1,10 @@
 import logging
+import os
 
 log = logging.getLogger('game.util')
+
+def clear_screen():
+    os.system('cls' if os.name=='nt' else 'clear')
 
 def console_color(message, **kwargs):
     color = kwargs.get("color", "white")

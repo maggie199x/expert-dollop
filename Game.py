@@ -5,7 +5,7 @@ import platform
 import logging
 
 import settings
-from util import console_color
+from util import clear_screen, console_color
 
 from Player import Player
 from Location import Location
@@ -20,12 +20,13 @@ class Game:
     """
     def __init__(self):
 
-        log.info(console_color("New Game Started", color="blue", background="lightgrey"))
+        log.info(console_color("New Game Started", color="black", background="green"))
 
         # Mapping of input commands to functions
         self.reactionMap = {
             "quit": self._quit,
-            "open": self._inclusive_action
+            "open": self._inclusive_action,
+            "move": self._inclusive_action,
         }
 
         # Mapping of possible inputs to commands
@@ -38,41 +39,43 @@ class Game:
             "o":    "open",
         }
 
-        self._command = None
         self.running = True
-        self.parser = None
-        self.playerActionQueue = ["m"]
+
+        self.player_input = None
 
         self.player = None
         self.locations = {}
         self.barriers = {}
         self._initialize_objects()
 
+    def run(self):
+        while(self.running):
+            self.command()
+
+    def exit_game(self):
+        self.running = False
+
     def command(self):
         input_text = input("@> ").lower().split()
         base_command = self.dealias_command(input_text[0])
         input_params = input_text[1:]
-        self._command = [base_command] + input_params
+        self.player_input = [base_command] + input_params
 
-        if self._command[0] in self.playerActionQueue:
-            self._player_action()
-        if self._command[0] in self.reactionMap:
-            print(self.reactionMap[self._command[0]]())
+        if base_command in self.reactionMap:
+            log.info(console_color("Performing action {}".format(self.player_input), color="blue"))
+            self.reactionMap[base_command]()
 
     def dealias_command(self, command):
         # If the command is not in the alias list, returns the command
         return self.aliasMap.get(command, command)
 
-    def exit_game(self):
-        self.running = False
+    ##############
+    ## Accessors... we probably don't need any of this?
+    ##############
 
     def player(self):
         # return player
         return self.player
-
-    def run(self):
-        while(self.running):
-            self.command()
 
     def running(self):
         # return running
@@ -81,18 +84,14 @@ class Game:
     def test(self):
         print("test is successful")
 
+    ##############
+    ## Initialization Functions
+    ##############
 
     def _connect_barrier(self, barrier):
         location = barrier._location
         for direction in barrier._connections:
             location = self.locations[location].give_barrier(barrier, direction)
-
-
-
-    def _inclusive_action(self):
-        foundObj = self._search(self.command[1])
-        if foundObj:
-            return foundObj.react(self.player, self.command)
 
     def _initialize_objects(self):
         try:
@@ -111,16 +110,34 @@ class Game:
         except Exception as e:
             log.error("Error loading GameObjects: {}".format(e))
             raise SyntaxError("Error loading objects from GameObjects.json")
-
         return True
 
+    ##############
+    ## Actions
+    ##############
+
+    def _inclusive_action(self):
+        command = self.player_input
+        if len(command) < 2:
+            print("That action must have a target.")
+            return False
+        foundObj = self._search(command[1])
+        if foundObj:
+            return foundObj.react(self.player, self.command)
+        else:
+            print("Object {} not found.".format(command[1]))
+
     def _player_action(self):
-        return self.player.react(self.command)
+        return self.player.react(self.player_input)
 
     def _search(self, tag):
-        if (tag in self.player._inventory) or (tag in self.player._location._inventory):
-            return self._allObj[tag]
-        return None
+        # Search player then location for tag
+        if tag in self.player._inventory:
+            return self.player._inventory[tag]
+        elif tag in self.player._location._inventory:
+            return self.player._location._inventory[tag]
+        else:
+            return None
 
     def _quit(self):
         self.running = False
