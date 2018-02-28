@@ -12,7 +12,20 @@ class Player(GameObject):
         self._location = self._objDict[kwargs["location"]]
 
     def _move(self, direction):
-        return self._location.player_move(self, direction)
+        if direction in self._location._barriers:
+            if self._location._barriers[direction]._open: 
+                self._location = self._objDict[self._location._connections[direction]] #give player new location
+                return self._location.react(self, ["visit"])
+
+            else: return self._location._barriers[direction]._sDesc
+
+
+            #return self._barriers[direction].react(player, ["m", direction])
+
+            #return reactionMap[self._tag](player, self, direction)
+
+        return "theres nothing that way for you"
+        #return self._location.player_move(self, direction)
             
 
     def react(self, command):

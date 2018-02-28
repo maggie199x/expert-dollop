@@ -2,6 +2,14 @@
 import GameObject
 from GameObject import GameObject
 
+
+
+''' The barrier object class are objects which prevent player movement, or trigger events which happen when a player passes through
+They are not in charge of the player moving to a new location. If a barrier is open, the player WILL be able to move into a new location
+The barrier object simply decides if a reaction happens when the player enters the new location
+IE. the player moves into a new room, and the door shuts behind him. '''
+
+
 reactionMap = {}
 
 def old_door(barrier, player, action):

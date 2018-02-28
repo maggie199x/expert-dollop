@@ -35,9 +35,11 @@ class Game(object):
 
     def command(self):
         self._command = input("@> ").lower().split()
-        if self._command[0] in self._Player_action_queue: self._player_action()
-        if self._command[0] in self._reactionMap:
-            print(self._reactionMap[self._command[0]]())
+        
+        if self._command[0] in self._Player_action_queue: print(self._player_action())
+        elif self._command[0] in self._reactionMap: print(self._reactionMap[self._command[0]]())
+        else: print("not sure what you mean fam")
+
 
     def _connect_barrier(self, barrier):
         location = barrier._location
@@ -52,8 +54,10 @@ class Game(object):
         return self._player.react(self._command)
 
     def _inclusive_action(self): 
-        foundObj = self._search(self._command[1])
-        if foundObj: return foundObj.react(self._player, self._command)
+        if len(self._command) == 2:
+            foundObj = self._search(self._command[1])
+            if foundObj: return foundObj.react(self._player, self._command)
+        else: return self._command[0] + " what?"
 
 
 
@@ -76,7 +80,7 @@ class Game(object):
 
     def _quit(self):
         self._running = False
-        print("quitting")
+        return "quitting"
 
 
     #members

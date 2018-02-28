@@ -7,11 +7,13 @@ from Barrier import Barrier
 
 reactionMap = {}
 
-def second_room(player, location, direction):
-    location._barriers["s"].close()
 
-def first_room(barriers):
-    pass
+
+def second_room(location, player, command):
+    if command[0] in location.baseMap: return location.baseMap[command[0]](location)
+
+def first_room(location, player, command):
+    if command[0] in location.baseMap: return location.baseMap[command[0]](location)
 
 reactionMap["second_room"] = second_room
 reactionMap["first_room"] = first_room
@@ -20,9 +22,21 @@ class Location(GameObject):
 
     def __init__(self, **kwargs): 
         super(Location, self).__init__(**kwargs)
+        #baseMap = { "visit" : self.visit}
+
         self._connections = kwargs["connections"]
         self._barriers = {}
-         
+        self._react = reactionMap[kwargs["tag"]]
+    
+    def react(self, player, command): 
+        return reactionMap[self._tag](self, player, command)
+
+
+    def visit(self):
+        if self._visited: return self._sDesc
+        else: 
+            self._visited = True
+            return self._lDesc
 
     def give_barrier(self, barrier, direction):
         self._inventory.append(barrier._tag)
@@ -37,6 +51,7 @@ class Location(GameObject):
             return reactionMap[self._tag](player, self, direction)
         return "there's nothing but death that way"
 
+    baseMap = { "visit" : visit }
     _connections = None
     _barriers = None
     _visited = False
