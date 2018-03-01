@@ -1,23 +1,26 @@
 #!/usr/local/Cellar/python3
-from pprint import pprint
+import json
+import logging
+import settings
+from util import console_color
 
-import GameObject
+
 from GameObject import GameObject
 from Barrier import Barrier
+
+log = logging.getLogger('game.Location')
 
 reactionMap = {}
 
 
 
 def second_room(location, player, command):
-    print(command)
     result = ""
     if command[0] in location.baseMap: 
         if command[0] == "m":
             if command[0] == "n":
                 location._barriers["s"]._open = False
                 result = "The door slams shut behind you."
-                print("yas")
         print(location.baseMap[command[0]](location) + result)
     else: return "error"
 
@@ -31,11 +34,17 @@ class Location(GameObject):
 
     def __init__(self, **kwargs): 
         super(Location, self).__init__(**kwargs)
+        log.info(console_color("New Location Created: {}".format(kwargs["tag"]), color="green"))
+
         #baseMap = { "visit" : self.visit}
 
         self._connections = kwargs["connections"]
         self._barriers = {}
         self._react = reactionMap[kwargs["tag"]]
+        self._visited = False
+
+    def __str__(self):
+        return json.dumps(self.__dict__)
     
     def react(self, player, command): 
         return reactionMap[self._tag](self, player, command)
@@ -61,8 +70,5 @@ class Location(GameObject):
             return reactionMap[self._tag](player, self, direction)
         return "there's nothing but death that way" '''
 
-    baseMap = { "m" : visit }
-    _connections = None
-    _barriers = None
-    _visited = False
+    baseMap = { "move" : visit }
 
