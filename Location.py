@@ -16,16 +16,18 @@ reactionMap = {}
 
 def second_room(location, player, command):
     result = ""
+    print(command[0])
     if command[0] in location.baseMap: 
-        if command[0] == "m":
-            if command[0] == "n":
+        if command[0] == "move":
+            if command[1] == "n":
                 location._barriers["s"]._open = False
-                result = "The door slams shut behind you."
-        print(location.baseMap[command[0]](location) + result)
-    else: return "error"
+                result = "\n\nThe door slams shut behind you."
+        return location.baseMap[command[0]]() + result
+    else: return "'" + location._tag + "' reaction ERROR"
 
 def first_room(location, player, command):
-    if command[0] in location.baseMap: return location.baseMap[command[0]](location)
+    return location.base_react(command)
+    
 
 reactionMap["second_room"] = second_room
 reactionMap["first_room"] = first_room
@@ -36,15 +38,19 @@ class Location(GameObject):
         super(Location, self).__init__(**kwargs)
         log.info(console_color("New Location Created: {}".format(kwargs["tag"]), color="green"))
 
-        #baseMap = { "visit" : self.visit}
+        self.baseMap = { "move" : self.visit }
 
         self._connections = kwargs["connections"]
         self._barriers = {}
         self._react = reactionMap[kwargs["tag"]]
         self._visited = False
 
+
     def __str__(self):
         return json.dumps(self.__dict__)
+
+    def base_react(self, command):
+        if command[0] in self.baseMap: return self.baseMap[command[0]]()
     
     def react(self, player, command): 
         return reactionMap[self._tag](self, player, command)
@@ -70,5 +76,5 @@ class Location(GameObject):
             return reactionMap[self._tag](player, self, direction)
         return "there's nothing but death that way" '''
 
-    baseMap = { "move" : visit }
+    
 

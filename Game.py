@@ -29,6 +29,9 @@ class Game:
             "move": self.player_action,
         }
         
+        self.searchMap = {
+            "open": self.inclusive_search,
+        }
 
         # Mapping of possible inputs to commands
         self.aliasMap = {
@@ -42,10 +45,11 @@ class Game:
 
         # Initialize variables
         self.running = True
-        self.player_input = True
+        self.playerInput = None
         self.player = None
         self.locations = {"test" : "test2"}
         self.barriers = {}
+        self.allObj = {}
         #self.initialize_objects()
 
 
@@ -58,13 +62,34 @@ class Game:
         #self._initialize_objects()
         #clear_screen()
 
+    def inclusive_search(self, searchTerm): #TODO: need to create aliasing system so that players can refer to objects by alias
+        #searches for any item viewable by the player in the room
+
+        #print("inclusive_search()")
+        #print(searchTerm)
+        matchingObjects = 0
+        ''' TODO: will add this section once player inventory is implemented 
+        if tag in self.player._inventory:
+            return self.allObj[self.player._inventory[tag]] '''
+
+        # search room for matching objects
+        if searchTerm[0] in self.player._location._inventory:
+            matchingObjects += 1
+            #print(matchingObjects)
+
+        # TODO: dealias the search term
+        if matchingObjects == 1:
+            tag = searchTerm[0]
+            #print("object found")
+            return tag
+
     def run(self):
         while(self.running):
             self.command()
 
     #is this still used?
     def player_action(self):
-        return self.player.react(self.player_input) 
+        return self.player.react(self.playerInput) 
 
 
     def exit_game(self):
@@ -72,23 +97,25 @@ class Game:
 
     #is this still used?
     def inclusive_action(self): 
-        command = self.player_input
+        command = self.playerInput
         if len(command) < 2:
             return command[0] + " what?"
 
         foundObj = self.searchMap[command[0]](command[1:])
-        if foundObj: return foundObj.react(self.player, self.player_input)
-        else: return "What is a " + command[1:]
+        if foundObj: return self.allObj[foundObj].react(self.player, self.playerInput)
+        else: return "What is a '" + ' '.join(command[1:]) + "'?"
 
     def command(self):
-        input_text = input("@> ").lower().split()
-        base_command = self.dealias_command(input_text[0])
-        input_params = input_text[1:]
-        self.player_input = [base_command] + input_params
+        inputText = []
+        while len(inputText) < 1:
+            inputText = input("@> ").lower().split()
+        baseCommand = self.dealias_command(inputText[0])
+        inputParams = inputText[1:]
+        self.playerInput = [baseCommand] + inputParams
 
-        if base_command in self.reactionMap: 
-            log.info(console_color("performing action {}".format(self.player_input), color="blue"))
-            print(self.reactionMap[base_command]())
+        if baseCommand in self.reactionMap: 
+            log.info(console_color("performing action {}".format(self.playerInput), color="blue"))
+            print(self.reactionMap[baseCommand]())
 
         else: 
             print("not sure what you mean fam")
@@ -105,7 +132,7 @@ class Game:
         return None
 
     def quit(self):
-        self._running = False
+        self.running = False
         return "quitting"
 
     def initialize_objects(self):
@@ -113,9 +140,11 @@ class Game:
         objects = json.load(open("GameObjects.json"))
         for location in objects["locations"]:
             self.locations[location] = Location(**(objects["locations"][location]))
+            self.allObj[location] = self.locations[location]
         for barrier in objects["barriers"]:
             self.barriers[barrier] = Barrier(**(objects["barriers"][barrier]))
             self.connect_barrier(self.barriers[barrier])
+            self.allObj[barrier] = self.barriers[barrier]
         #except Exception as e:
             #log.error("Parsing Error: {}".format(e))
             #raise SyntaxError("Error parsing GameObjects.json")
@@ -127,17 +156,7 @@ class Game:
         return True
 
     #members
-    """
-    _reactionMap = {}
-    _command = None 
-    _running = True
-    _parser = None
-
-    _allObj = {}
-    _locations = {}
-    _barriers = {}
-    #need to figure out reactionMap
-    _moveAlias = ["go", "move"] """
+    
 
 def main():
         print(platform.python_version())
@@ -147,6 +166,19 @@ def main():
 
 main()
 
+
+
+"""
+_reactionMap = {}
+_command = None 
+_running = True
+_parser = None
+
+_allObj = {}
+_locations = {}
+_barriers = {}
+#need to figure out reactionMap
+_moveAlias = ["go", "move"] """
 """
 def command(self):
 self._command = input("@> ").lower().split()

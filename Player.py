@@ -28,7 +28,7 @@ class Player(GameObject):
         if direction in self._location._barriers:
             if self._location._barriers[direction]._open: 
                 self._location = self._objDict[self._location._connections[direction]] #give player new location
-                return self._location.react(self, ["m", direction])
+                return self._location.react(self, ["move", direction])
 
             else: return self._location._barriers[direction]._sDesc
 
@@ -42,6 +42,9 @@ class Player(GameObject):
             
 
     def react(self, command):
-        if command[0] == 'm' and len(command) == 2:
-            return self._move(command[1])
+        if command[0] == 'move':
+            if len(command) == 2:
+                return self._move(command[1])
+            return "Move where?"
+        else: return "ERROR: command passed to 'Player' dispite no matching command"
     
