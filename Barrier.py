@@ -8,6 +8,8 @@ from GameObject import GameObject
 
 log = logging.getLogger('game.Barrier')
 
+#TODO: Make a base react so that each object is not required to have unique interactions.
+
 ''' The barrier object class are objects which prevent player movement, or trigger events which happen when a player passes through
 They are not in charge of the player moving to a new location. If a barrier is open, the player WILL be able to move into a new location
 The barrier object simply decides if a reaction happens when the player enters the new location
@@ -16,7 +18,7 @@ IE. the player moves into a new room, and the door shuts behind him. '''
 
 reactionMap = {}
 
-def old_door(barrier, player, command):
+def oak_door(barrier, player, command):
     ''' Not sure that this is necessary anymore 
     if action[0] == "m":
         if barrier._open:
@@ -32,7 +34,7 @@ def old_door(barrier, player, command):
         return barrier.open()
 
 
-reactionMap["old_door"] = old_door
+reactionMap["oak_door"] = oak_door
 
 class Barrier(GameObject):
     def __init__(self, **kwargs): 

@@ -2,6 +2,7 @@
   "player": {
     "player": {
       "tag": "player",
+      "alias_list": ["self", "myself"],
       "short_description": " this is first_room short description",
       "long_description": "this is first_room long description",
       "inventory": [],
@@ -11,6 +12,7 @@
   "locations": {
     "first_room": {
       "tag": "first_room",
+      "alias_list": [],
       "short_description": "first_room short description",
       "long_description": "first_room long description",
       "connections": {
@@ -20,6 +22,7 @@
     },
     "second_room": {
       "tag": "second_room",
+      "alias_list": [],
       "short_description": "second_room short description",
       "long_description": "second_room long description",
       "connections": {
@@ -30,8 +33,9 @@
     }
   },
   "barriers": {
-    "old_door": {
-      "tag": "old_door",
+    "oak_door": {
+      "tag": "oak_door",
+      "alias_list": ["door", "old door", "oak door"],
       "short_description": "A* oak door",
       "long_description": "A sturdy oak door currently *",
       "location": "first_room",

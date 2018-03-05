@@ -47,13 +47,13 @@ class Game:
         self.running = True
         self.playerInput = None
         self.player = None
-        self.locations = {"test" : "test2"}
+        self.locations = {}
         self.barriers = {}
         self.allObj = {}
         #self.initialize_objects()
 
 
-    def connect_barrier(self, barrier):
+    def connect_barrier(self, barrier): #first step
         location = barrier._location
         for direction in barrier._connections:
             location = self.locations[location].give_barrier(barrier, direction) 
@@ -61,6 +61,17 @@ class Game:
         ## Initialize the Game (loading screen?)
         #self._initialize_objects()
         #clear_screen()
+
+    def assemble_inventory(self, objDict): #second step
+        for key in objDict:
+            #self.construct_object_inventory(self.allObj[key])
+            inventory = self.allObj[key].inventory
+            for tag in self.allObj[key].tagInventory:
+                for alias in self.allObj[tag].aliasList:
+                    if alias in inventory: inventory[alias].append(tag)
+                    else: inventory[alias] = [tag]
+            print(inventory) 
+
 
     def inclusive_search(self, searchTerm): #TODO: need to create aliasing system so that players can refer to objects by alias
         #searches for any item viewable by the player in the room
@@ -153,6 +164,7 @@ class Game:
         #except Exception as e:
         #   log.error("Error loading GameObjects: {}".format(e))
         #  raise SyntaxError("Error loading objects from GameObjects.json")
+        self.assemble_inventory(self.locations)
         return True
 
     #members
