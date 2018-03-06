@@ -16,7 +16,7 @@ reactionMap = {}
 
 def second_room(location, player, command):
     result = ""
-    print(command[0])
+    #print(command[0])
     if command[0] in location.baseMap: 
         if command[0] == "move":
             if command[1] == "n":

@@ -12,24 +12,21 @@
   "locations": {
     "first_room": {
       "tag": "first_room",
-      "alias_list": [],
-      "short_description": "first_room short description",
-      "long_description": "first_room long description",
+      "short_description": "A prison cell",
+      "long_description": "You stand in a bare prison cell. A matressless sleeping cot sits to the left of you, on it there*. to your right there is a small sink, above it a cracked mirror. directly in front of you the rusted prison bars are*",
       "connections": {
         "n": "second_room"
       },
-      "inventory": []
+      "inventory": ["cell_key"]
     },
     "second_room": {
       "tag": "second_room",
-      "alias_list": [],
-      "short_description": "second_room short description",
-      "long_description": "second_room long description",
+      "short_description": "You are in a short hallway filled with prison cells. ---DEMO ENDS---",
+      "long_description": "A small hallway filled with prison cells.",
       "connections": {
         "s": "first_room"
       },
-      "inventory": [],
-      "barriers": {}
+      "inventory": []
     }
   },
   "barriers": {
@@ -44,6 +41,15 @@
         "n",
         "s"
       ]
+    }
+  },
+  "items": {
+    "cell_key": {
+      "tag": "cell_key",
+      "alias_list": ["key", "rusty key"],
+      "short_description": "a key",
+      "long_description": "a rusty key, old and ugly and blah blah blah",
+      "pick_up": 1
     }
   }
 }

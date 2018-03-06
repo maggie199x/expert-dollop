@@ -16,20 +16,46 @@ class Parser:
             "o":    "open",
         }
         self.verb = "" 
-
-    def extract_verb(self, inputText):
-        # If the command is not in the alias list, returns the command
-        alias = inputText[0]
-        return self.aliasMap.get(alias, alias)
-
-    def extract_subject(self, inputText):
-        return ' '.join(inputText[1:])
+        self.subject = ""
 
     def parse_command(self, inputText):
         splitText = inputText.lower().split()
         result = []
         self.verb = self.extract_verb(splitText)
         self.subject = self.extract_subject(splitText)
-        result.append(self.verb)
-        result.append(self.subject)
+        if self.verb: result.append(self.verb)
+        if self.subject: result.append(self.subject)
         return result
+
+
+    def extract_verb(self, splitText):
+        # If the command is not in the alias list, returns the command
+        alias = splitText[0]
+        return self.aliasMap.get(alias, alias)
+
+    def extract_subject(self, splitText):
+        i = 1
+        indexToDelete = []
+        while(i < len(splitText) - 1):
+            if splitText[i] == "the":
+                indexToDelete = [i] + indexToDelete #adding to beggning of list if element is 'the'
+            i += 2
+
+        #print(indexToDelete)
+        for element in indexToDelete:
+            splitText.pop(element)
+
+        return ' '.join(splitText[1:])
+
+
+
+def main():
+    print("running")
+    parser = Parser()
+    print(parser.parse_command("open the old door"))
+    print(parser.verb)
+    print(parser.subject)
+
+
+
+
