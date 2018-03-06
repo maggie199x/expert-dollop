@@ -63,7 +63,7 @@ class Location(GameObject):
             return self._lDesc
 
     def give_barrier(self, barrier, direction):
-        self._inventory.append(barrier._tag)
+        self.tagInventory.append(barrier._tag)
         self._barriers[direction] = barrier
         return self._connections[direction]
 

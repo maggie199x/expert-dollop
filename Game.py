@@ -47,13 +47,13 @@ class Game:
         self.running = True
         self.playerInput = None
         self.player = None
-        self.locations = {"test" : "test2"}
+        self.locations = {}
         self.barriers = {}
         self.allObj = {}
         #self.initialize_objects()
 
 
-    def connect_barrier(self, barrier):
+    def connect_barrier(self, barrier): #first step
         location = barrier._location
         for direction in barrier._connections:
             location = self.locations[location].give_barrier(barrier, direction) 
@@ -62,26 +62,40 @@ class Game:
         #self._initialize_objects()
         #clear_screen()
 
+    def assemble_inventory(self, objDict): #second step
+        for key in objDict:
+            #self.construct_object_inventory(self.allObj[key])
+            inventory = self.allObj[key].inventory
+            for tag in self.allObj[key].tagInventory:
+                for alias in self.allObj[tag].aliasList:
+                    if alias in inventory: inventory[alias].append(tag)
+                    else: inventory[alias] = [tag]
+            print(inventory) 
+
+
     def inclusive_search(self, searchTerm): #TODO: need to create aliasing system so that players can refer to objects by alias
         #searches for any item viewable by the player in the room
 
         #print("inclusive_search()")
         #print(searchTerm)
-        matchingObjects = 0
+        #matchingObjects = 0
         ''' TODO: will add this section once player inventory is implemented 
         if tag in self.player._inventory:
             return self.allObj[self.player._inventory[tag]] '''
 
         # search room for matching objects
-        if searchTerm[0] in self.player._location._inventory:
-            matchingObjects += 1
-            #print(matchingObjects)
+        result = []
+        inventory = self.player._location.inventory
+        print(inventory)
 
-        # TODO: dealias the search term
-        if matchingObjects == 1:
-            tag = searchTerm[0]
-            #print("object found")
-            return tag
+        if searchTerm in inventory:
+            for i in inventory[searchTerm]:
+
+                result.append(i)
+
+        print(result)
+
+        return result
 
     def run(self):
         while(self.running):
@@ -101,9 +115,12 @@ class Game:
         if len(command) < 2:
             return command[0] + " what?"
 
-        foundObj = self.searchMap[command[0]](command[1:])
-        if foundObj: return self.allObj[foundObj].react(self.player, self.playerInput)
-        else: return "What is a '" + ' '.join(command[1:]) + "'?"
+        foundObjects = self.searchMap[command[0]](command[1])
+        print(foundObjects)
+        if len(foundObjects) == 1:
+            return self.allObj[foundObjects[0]].react(self.player, self.playerInput)
+        elif len(foundObjects) > 1: return "Which '" + command[1] + "'?" 
+        else: return "What is a '" + ' '.join(command[1]) + "'?"
 
     def command(self):
         inputText = []
@@ -153,6 +170,7 @@ class Game:
         #except Exception as e:
         #   log.error("Error loading GameObjects: {}".format(e))
         #  raise SyntaxError("Error loading objects from GameObjects.json")
+        self.assemble_inventory(self.locations)
         return True
 
 def main():
