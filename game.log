@@ -6,3 +6,148 @@
 2018-03-03 16:55:46,692:game.py:[34m[40mperforming action ['open', 'old_door'][0m
 2018-03-03 16:55:57,642:game.py:[34m[40mperforming action ['move', 'n'][0m
 2018-03-03 16:56:10,094:game.py:[34m[40mperforming action ['quit'][0m
+2018-03-06 10:14:45,376:game.py:[30m[41mnew Game Started[0m
+2018-03-06 10:14:45,377:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 10:14:45,378:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 10:14:45,378:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 10:14:45,378:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x101b91cf8>, 'second_room': <Location.Location object at 0x101b91be0>}[0m
+2018-03-06 10:14:48,442:game.py:[34m[40mperforming action ['open', 'door'][0m
+2018-03-06 10:14:53,807:game.py:[34m[40mperforming action ['move', 'n'][0m
+2018-03-06 10:14:55,348:game.py:[34m[40mperforming action ['quit'][0m
+2018-03-06 12:42:32,835:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:42:32,836:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:42:32,836:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:42:32,836:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:42:32,837:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x102378eb8>, 'second_room': <Location.Location object at 0x102378e80>}[0m
+2018-03-06 12:43:15,041:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:43:15,041:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:43:15,042:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:43:15,042:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:43:15,042:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x101173128>, 'second_room': <Location.Location object at 0x101173198>}[0m
+2018-03-06 12:43:45,361:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:43:45,361:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:43:45,361:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:43:45,361:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:43:45,362:Player.py:[31m[40mNew Player Created: {'second_room': <Location.Location object at 0x102b6b128>, 'first_room': <Location.Location object at 0x102b6b198>}[0m
+2018-03-06 12:44:59,026:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:44:59,027:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:44:59,027:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:44:59,027:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:44:59,028:Player.py:[31m[40mNew Player Created: {'second_room': <Location.Location object at 0x101b79eb8>, 'first_room': <Location.Location object at 0x101b79e80>}[0m
+2018-03-06 12:45:42,074:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:45:42,075:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:45:42,075:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:45:42,075:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:45:42,076:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x102b79eb8>, 'second_room': <Location.Location object at 0x102b79e80>}[0m
+2018-03-06 12:46:07,006:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:46:07,006:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:46:07,006:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:46:07,006:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:46:07,007:Player.py:[31m[40mNew Player Created: {'second_room': <Location.Location object at 0x102b6b128>, 'first_room': <Location.Location object at 0x102b6b0f0>}[0m
+2018-03-06 12:46:59,523:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:46:59,524:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:46:59,524:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:46:59,524:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:46:59,524:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x102379eb8>, 'second_room': <Location.Location object at 0x102379e80>}[0m
+2018-03-06 12:47:32,525:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:47:32,526:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:47:32,526:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:47:32,526:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:47:32,526:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x10236b128>, 'second_room': <Location.Location object at 0x10236b198>}[0m
+2018-03-06 12:47:59,201:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:47:59,202:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:47:59,202:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:47:59,202:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:47:59,202:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x101b6d128>, 'second_room': <Location.Location object at 0x101b6d198>}[0m
+2018-03-06 12:48:20,927:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:48:20,927:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:48:20,928:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:48:20,928:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:48:20,928:Player.py:[31m[40mNew Player Created: {'second_room': <Location.Location object at 0x10236b128>, 'first_room': <Location.Location object at 0x10236b198>}[0m
+2018-03-06 12:48:34,498:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:48:34,498:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:48:34,498:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:48:34,498:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:48:34,498:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x101b64f28>, 'second_room': <Location.Location object at 0x101b6b240>}[0m
+2018-03-06 12:48:36,887:game.py:[34m[40mperforming action [][0m
+2018-03-06 12:50:04,795:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:50:04,795:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:50:04,795:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:50:04,795:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:50:04,795:Player.py:[31m[40mNew Player Created: {'second_room': <Location.Location object at 0x102365f28>, 'first_room': <Location.Location object at 0x10236b240>}[0m
+2018-03-06 12:50:09,265:game.py:[34m[40mperforming action open door[0m
+2018-03-06 12:51:46,861:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:51:46,861:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:51:46,862:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:51:46,862:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:51:46,862:Player.py:[31m[40mNew Player Created: {'second_room': <Location.Location object at 0x102365f28>, 'first_room': <Location.Location object at 0x10236b240>}[0m
+2018-03-06 12:51:49,577:game.py:[34m[40mperforming action ['open', 'door'][0m
+2018-03-06 12:51:54,728:game.py:[34m[40mperforming action ['move', 'n'][0m
+2018-03-06 12:52:01,562:game.py:[34m[40mperforming action ['quit'][0m
+2018-03-06 12:56:26,763:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:56:26,763:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:56:26,763:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:56:26,763:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:56:26,764:Player.py:[31m[40mNew Player Created: {'second_room': <Location.Location object at 0x101b79c88>, 'first_room': <Location.Location object at 0x101b79c50>}[0m
+2018-03-06 12:56:32,232:game.py:[34m[40mperforming action ['open', 'door'][0m
+2018-03-06 12:56:35,071:game.py:[34m[40mperforming action ['open', 'door'][0m
+2018-03-06 12:56:38,122:game.py:[34m[40mperforming action ['open', 'door'][0m
+2018-03-06 12:56:41,723:game.py:[34m[40mperforming action ['move', 'n'][0m
+2018-03-06 12:56:45,235:game.py:[34m[40mperforming action ['open', 'door'][0m
+2018-03-06 12:56:46,522:game.py:[34m[40mperforming action ['move', 's'][0m
+2018-03-06 12:56:48,919:game.py:[34m[40mperforming action ['move', 'n'][0m
+2018-03-06 12:56:50,812:game.py:[34m[40mperforming action ['open', 'door'][0m
+2018-03-06 12:56:54,726:game.py:[34m[40mperforming action ['quit'][0m
+2018-03-06 12:56:57,847:game.py:[30m[41mnew Game Started[0m
+2018-03-06 12:56:57,847:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 12:56:57,847:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 12:56:57,848:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 12:56:57,848:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x101a65be0>, 'second_room': <Location.Location object at 0x101a65eb8>}[0m
+2018-03-06 12:56:59,454:game.py:[34m[40mperforming action ['quit'][0m
+2018-03-06 13:09:32,003:game.py:[30m[41mnew Game Started[0m
+2018-03-06 13:09:32,003:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 13:09:32,004:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 13:09:32,004:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 13:09:32,004:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x101b77cc0>, 'second_room': <Location.Location object at 0x101b77ba8>}[0m
+2018-03-06 13:10:11,410:game.py:[30m[41mnew Game Started[0m
+2018-03-06 13:10:11,410:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 13:10:11,410:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 13:10:11,410:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 13:10:11,410:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x102379cf8>, 'second_room': <Location.Location object at 0x102379cc0>}[0m
+2018-03-06 13:10:13,343:game.py:[34m[40mperforming action ['open', 'o'][0m
+2018-03-06 13:10:53,622:game.py:[30m[41mnew Game Started[0m
+2018-03-06 13:10:53,623:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 13:10:53,623:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 13:10:53,623:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 13:10:53,623:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x102377cf8>, 'second_room': <Location.Location object at 0x102377cc0>}[0m
+2018-03-06 13:10:55,991:game.py:[34m[40mperforming action ['open', 'o'][0m
+2018-03-06 13:12:02,800:game.py:[30m[41mnew Game Started[0m
+2018-03-06 13:12:02,800:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 13:12:02,800:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 13:12:02,800:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 13:12:02,801:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x101a67d68>, 'second_room': <Location.Location object at 0x101a67c88>}[0m
+2018-03-06 13:12:04,810:game.py:[34m[40mperforming action ['open', 'o'][0m
+2018-03-06 13:12:35,741:game.py:[30m[41mnew Game Started[0m
+2018-03-06 13:12:35,742:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 13:12:35,742:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 13:12:35,742:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 13:12:35,742:Player.py:[31m[40mNew Player Created: {'second_room': <Location.Location object at 0x102377cf8>, 'first_room': <Location.Location object at 0x102377cc0>}[0m
+2018-03-06 13:12:37,486:game.py:[34m[40mperforming action ['open', 'o'][0m
+2018-03-06 13:13:53,658:game.py:[30m[41mnew Game Started[0m
+2018-03-06 13:13:53,658:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 13:13:53,659:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 13:13:53,659:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 13:13:53,659:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x101b77cc0>, 'second_room': <Location.Location object at 0x101b77cf8>}[0m
+2018-03-06 13:13:55,432:game.py:[34m[40mperforming action ['open', 'open'][0m
+2018-03-06 13:14:34,054:game.py:[34m[40mperforming action ['quit', 'exit'][0m
+2018-03-06 13:14:38,539:game.py:[30m[41mnew Game Started[0m
+2018-03-06 13:14:38,540:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-06 13:14:38,540:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-06 13:14:38,540:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-06 13:14:38,540:Player.py:[31m[40mNew Player Created: {'second_room': <Location.Location object at 0x102377cf8>, 'first_room': <Location.Location object at 0x102377cc0>}[0m
+2018-03-06 13:14:40,487:game.py:[34m[40mperforming action ['open', 'door'][0m
+2018-03-06 13:14:43,784:game.py:[34m[40mperforming action ['move', 'n'][0m
+2018-03-06 13:14:46,377:game.py:[34m[40mperforming action ['open', 'door'][0m
+2018-03-06 13:14:48,028:game.py:[34m[40mperforming action ['open', 'door'][0m
+2018-03-06 13:14:50,321:game.py:[34m[40mperforming action ['move', 's'][0m
+2018-03-06 13:14:53,512:game.py:[34m[40mperforming action ['quit', ''][0m

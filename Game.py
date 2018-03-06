@@ -10,6 +10,7 @@ from util import clear_screen, console_color
 from Player import Player
 from Location import Location
 from Barrier import Barrier
+from Parser import Parser
 
 #set up logging
 log = logging.getLogger('game.Game')
@@ -34,18 +35,13 @@ class Game:
         }
 
         # Mapping of possible inputs to commands
-        self.aliasMap = {
-            "e":    "quit",
-            "exit": "quit",
-            "q":    "quit",
-            "go":   "move",
-            "m":    "move",
-            "o":    "open",
-        }
+        
 
         # Initialize variables
+        self.parser = Parser()
+
         self.running = True
-        self.playerInput = None
+        self.playerInput = []
         self.player = None
         self.locations = {}
         self.barriers = {}
@@ -70,7 +66,7 @@ class Game:
                 for alias in self.allObj[tag].aliasList:
                     if alias in inventory: inventory[alias].append(tag)
                     else: inventory[alias] = [tag]
-            print(inventory) 
+            #print(inventory) 
 
 
     def inclusive_search(self, searchTerm): #TODO: need to create aliasing system so that players can refer to objects by alias
@@ -123,25 +119,27 @@ class Game:
         else: return "What is a '" + ' '.join(command[1]) + "'?"
 
     def command(self):
-        inputText = []
-        while len(inputText) < 1:
-            inputText = input("@> ").lower().split()
-        baseCommand = self.dealias_command(inputText[0])
-        inputParams = inputText[1:]
-        self.playerInput = [baseCommand] + inputParams
 
-        if baseCommand in self.reactionMap: 
+        inputText = ""
+        while len(inputText) < 1:
+            inputText = input("@> ")
+        
+        inputList = self.parser.parse_command(inputText)
+        self.playerInput = inputList
+        #print(inputList)
+        verb = inputList[0]
+        noun = inputList[1:]
+        #print(verb)
+        if verb in self.reactionMap: 
             log.info(console_color("performing action {}".format(self.playerInput), color="blue"))
-            print(self.reactionMap[baseCommand]())
+            print(self.reactionMap[verb]())
 
         else: 
             print("not sure what you mean fam")
 
         #elif base_command in self.reactionMap: print(self._reactionMap[self._command[0]]())
 
-    def dealias_command(self, command):
-        # If the command is not in the alias list, returns the command
-        return self.aliasMap.get(command, command)
+
 
     def search(self, tag):
         if (tag in self._player._inventory) or (tag in self._player._location._inventory):

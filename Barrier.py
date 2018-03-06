@@ -19,17 +19,6 @@ IE. the player moves into a new room, and the door shuts behind him. '''
 reactionMap = {}
 
 def oak_door(barrier, player, command):
-    ''' Not sure that this is necessary anymore 
-    if action[0] == "m":
-        if barrier._open:
-            player._location = barrier._connections[action[1]]
-            if player._location._visited: return player._location._sDesc
-            else:
-                player._location._sDesc
-                return player._location._lDesc
-
-        return barrier._lDesc
-    '''
     if command[0] == "open":
         return barrier.open()
 
@@ -57,8 +46,11 @@ class Barrier(GameObject):
 
     def open(self):
         #print("barrier::open")
-        self._open = True
-        return "you open it"
+        if self._open:
+            return "That's already open."
+        else: 
+            self._open = True
+            return "You open it."
 
     _open = False
     _connections = []
