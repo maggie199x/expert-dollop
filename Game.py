@@ -78,21 +78,24 @@ class Game:
 
         #print("inclusive_search()")
         #print(searchTerm)
-        matchingObjects = 0
+        #matchingObjects = 0
         ''' TODO: will add this section once player inventory is implemented 
         if tag in self.player._inventory:
             return self.allObj[self.player._inventory[tag]] '''
 
         # search room for matching objects
-        if searchTerm[0] in self.player._location._inventory:
-            matchingObjects += 1
-            #print(matchingObjects)
+        result = []
+        inventory = self.player._location.inventory
+        print(inventory)
 
-        # TODO: dealias the search term
-        if matchingObjects == 1:
-            tag = searchTerm[0]
-            #print("object found")
-            return tag
+        if searchTerm in inventory:
+            for i in inventory[searchTerm]:
+
+                result.append(i)
+
+        print(result)
+
+        return result
 
     def run(self):
         while(self.running):
@@ -112,9 +115,12 @@ class Game:
         if len(command) < 2:
             return command[0] + " what?"
 
-        foundObj = self.searchMap[command[0]](command[1:])
-        if foundObj: return self.allObj[foundObj].react(self.player, self.playerInput)
-        else: return "What is a '" + ' '.join(command[1:]) + "'?"
+        foundObjects = self.searchMap[command[0]](command[1])
+        print(foundObjects)
+        if len(foundObjects) == 1:
+            return self.allObj[foundObjects[0]].react(self.player, self.playerInput)
+        elif len(foundObjects) > 1: return "Which '" + command[1] + "'?" 
+        else: return "What is a '" + ' '.join(command[1]) + "'?"
 
     def command(self):
         inputText = []
