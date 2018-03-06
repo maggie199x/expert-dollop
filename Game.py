@@ -155,68 +155,27 @@ class Game:
         #  raise SyntaxError("Error loading objects from GameObjects.json")
         return True
 
-    #members
-    
-
 def main():
-        print(platform.python_version())
-        game = Game()
-        game.initialize_objects()
-        game.run()
+
+    # Set up logging for all modules
+    logging.basicConfig(filename=settings.LOG_FILENAME,format=settings.LOG_FORMAT,level=logging.DEBUG)
+    console = logging.StreamHandler()
+    console.setLevel(logging.INFO)
+    console_log_formatter = logging.Formatter(settings.LOG_FORMAT)
+    console.setFormatter(console_log_formatter)
+
+    # Parse command line args
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-d", "--debug", action="store_true", help="Enable Debug Mode")
+    args = parser.parse_args()
+    if args.debug:
+        # Add console logging
+        logging.getLogger('').addHandler(console)
+
+    print(platform.python_version())
+    game = Game()
+    game.initialize_objects()
+    game.run()
 
 main()
-
-
-
-"""
-_reactionMap = {}
-_command = None 
-_running = True
-_parser = None
-
-_allObj = {}
-_locations = {}
-_barriers = {}
-#need to figure out reactionMap
-_moveAlias = ["go", "move"] """
-"""
-def command(self):
-self._command = input("@> ").lower().split()
-
-if self._command[0] in self._Player_action_queue: print(self._player_action())
-elif self._command[0] in self._reactionMap: print(self._reactionMap[self._command[0]]())
-else: print("not sure what you mean fam")"""
-
-"""
-self._Player_action_queue = ["m"]
-self._reactionMap = {
-"exit" : self._quit,
-"quit" : self._quit,
-"open" : self._inclusive_action
-}
-objDict = {}
-with open("GameObjects.json", 'r') as f:
-allObj = json.load(f)
-for location in allObj["locations"]:
-#print(location)
-self._locations[location] = Location(**(allObj["locations"][location]))
-self._allObj[location] = self._locations[location]
-
-for barrier in allObj["barriers"]:
-self._barriers[barrier] = Barrier(**(allObj["barriers"][barrier]))
-self._allObj[barrier] = self._barriers[barrier] """
-
-
-"""
-self._player = Player( self._locations, **(allObj["player"]["player"]))
-for barrier in self._barriers:
-self._connect_barrier(self._barriers[barrier]) """
-
-'''
-for location in objects["locations"]:
-self.locations[location] = Location(**(objects["locations"][location]))
-for barrier in objects["barriers"]:
-self.barriers[barrier] = Barrier(**(objects["barriers"][barrier]))
-for barrier in self.barriers:
-self._connect_barrier(self.barriers[barrier])'''
 
