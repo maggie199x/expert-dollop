@@ -8,7 +8,7 @@ class GameObject(object):
         self._lDesc = kwargs["long_description"]
         self._sDesc = kwargs["short_description"]
 
-        if "inventory" in kwargs: self.tagInventory = kwargs["inventory"]
+        self.tagInventory = []
         if "alias_list" in kwargs: self.aliasList = kwargs["alias_list"]
         self.inventory = {}
 

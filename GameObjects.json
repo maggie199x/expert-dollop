@@ -5,7 +5,6 @@
       "alias_list": ["self", "myself"],
       "short_description": " this is first_room short description",
       "long_description": "this is first_room long description",
-      "inventory": [],
       "location": "first_room"
     }
   },
@@ -16,8 +15,7 @@
       "long_description": "You stand in a bare prison cell. A matressless sleeping cot sits to the left of you, on it there*. to your right there is a small sink, above it a cracked mirror. directly in front of you the rusted prison bars are*",
       "connections": {
         "n": "second_room"
-      },
-      "inventory": ["cell_key"]
+      }
     },
     "second_room": {
       "tag": "second_room",
@@ -25,8 +23,7 @@
       "long_description": "A small hallway filled with prison cells.",
       "connections": {
         "s": "first_room"
-      },
-      "inventory": []
+      }
     }
   },
   "barriers": {
@@ -46,6 +43,7 @@
   "items": {
     "cell_key": {
       "tag": "cell_key",
+      "location": "first_room",
       "alias_list": ["key", "rusty key"],
       "short_description": "a key",
       "long_description": "a rusty key, old and ugly and blah blah blah",

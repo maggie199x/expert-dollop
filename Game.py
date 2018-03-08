@@ -80,8 +80,6 @@ class Game:
 
                 result.append(i)
 
-        #print(result)
-
         return result
 
     def run(self):
@@ -132,7 +130,7 @@ class Game:
         self.player = Player(self.locations, **(objects["player"]["player"]))
 
         self.assemble_barriers(self.barriers)
-        self.assemble_inventories(self.locations)
+        self.assemble_inventories(self.items)
         return True
 
     ''' ASSEMBLERS MUST BE CALLED BEFORE GAME CAN COMMENCE '''
@@ -145,9 +143,14 @@ class Game:
 
     def assemble_inventories(self, objDict): #second step
         for key in objDict:
+            obj = objDict[key]
+            self.allObj[obj._location].give_object(obj)
+        '''
+        for key in objDict:
             #inventory = self.allObj[key].inventory
             for tag in self.allObj[key].tagInventory:
                 objDict[key].give_object(self.allObj[tag])
+        '''
 
 def main():
 
