@@ -478,3 +478,40 @@
 2018-03-08 16:35:33,946:Game.py:[34m[40mperforming action ['get', 'key'][0m
 2018-03-08 16:36:15,075:Game.py:[34m[40mperforming action ['inventory'][0m
 2018-03-08 16:36:19,952:Game.py:[34m[40mperforming action ['quit'][0m
+2018-03-09 13:13:19,530:Game.py:[30m[41mnew Game Started[0m
+2018-03-09 13:13:19,531:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-09 13:13:19,531:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-09 13:13:19,531:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-09 13:13:19,531:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x10237d358>, 'oak_door': <Barrier.Barrier object at 0x10237d048>, 'cell_key': <Item.Item object at 0x10237d160>, 'second_room': <Location.Location object at 0x10237d208>}[0m
+2018-03-09 13:13:29,013:Game.py:[30m[41mnew Game Started[0m
+2018-03-09 13:13:29,014:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-09 13:13:29,014:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-09 13:13:29,014:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-09 13:13:29,014:Player.py:[31m[40mNew Player Created: {'cell_key': <Item.Item object at 0x101b7d160>, 'second_room': <Location.Location object at 0x101b7d320>, 'first_room': <Location.Location object at 0x101b7d1d0>, 'oak_door': <Barrier.Barrier object at 0x101b7d128>}[0m
+2018-03-09 13:24:50,978:Game.py:[30m[41mnew Game Started[0m
+2018-03-09 13:24:50,979:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-09 13:24:50,979:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-09 13:24:50,979:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-09 13:24:50,979:Player.py:[31m[40mNew Player Created: {'second_room': <Location.Location object at 0x10237e320>, 'oak_door': <Barrier.Barrier object at 0x10237e128>, 'first_room': <Location.Location object at 0x10237e240>, 'cell_key': <Item.Item object at 0x10237e160>}[0m
+2018-03-09 13:24:52,965:Game.py:[34m[40mperforming action ['inventory'][0m
+2018-03-09 13:25:48,242:Game.py:[30m[41mnew Game Started[0m
+2018-03-09 13:25:48,242:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-09 13:25:48,242:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-09 13:25:48,242:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-09 13:25:48,242:Player.py:[31m[40mNew Player Created: {'second_room': <Location.Location object at 0x101b802e8>, 'first_room': <Location.Location object at 0x101b80208>, 'cell_key': <Item.Item object at 0x101b80080>, 'oak_door': <Barrier.Barrier object at 0x101b800b8>}[0m
+2018-03-09 13:25:49,397:Game.py:[34m[40mperforming action ['inventory'][0m
+2018-03-09 13:26:34,694:Game.py:[30m[41mnew Game Started[0m
+2018-03-09 13:26:34,694:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-09 13:26:34,694:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-09 13:26:34,694:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-09 13:26:34,694:Player.py:[31m[40mNew Player Created: {'first_room': <Location.Location object at 0x1013812e8>, 'cell_key': <Item.Item object at 0x101381080>, 'oak_door': <Barrier.Barrier object at 0x1013810b8>, 'second_room': <Location.Location object at 0x101381198>}[0m
+2018-03-09 13:26:36,516:Game.py:[34m[40mperforming action ['inventory'][0m
+2018-03-09 13:27:41,944:Game.py:[30m[41mnew Game Started[0m
+2018-03-09 13:27:41,944:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-09 13:27:41,944:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-09 13:27:41,944:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-09 13:27:41,944:Player.py:[31m[40mNew Player Created: {'oak_door': <Barrier.Barrier object at 0x101b7f0b8>, 'first_room': <Location.Location object at 0x101b7f2e8>, 'second_room': <Location.Location object at 0x101b7f208>, 'cell_key': <Item.Item object at 0x101b7f080>}[0m
+2018-03-09 13:27:46,036:Game.py:[34m[40mperforming action ['inventory'][0m
+2018-03-09 13:27:53,855:Game.py:[34m[40mperforming action ['get', 'key'][0m
+2018-03-09 13:27:56,188:Game.py:[34m[40mperforming action ['inventory'][0m
+2018-03-09 13:28:03,616:Game.py:[34m[40mperforming action ['quit'][0m

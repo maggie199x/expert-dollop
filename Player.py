@@ -13,6 +13,8 @@ log = logging.getLogger('game.Player')
 
 
 
+#TODO: make Player in charge of searching and "getting" instead of Game.py
+#TODO: Change functions in reaction maps to take kwargs
 class Player(GameObject):
 
     def __init__(self, objDict, **kwargs):
@@ -20,11 +22,16 @@ class Player(GameObject):
         log.info(console_color("New Player Created: {}".format(objDict), color="red"))
         self._objDict = objDict
         self._location = self._objDict[kwargs["location"]]
+        self.reactionMap = {
+            "move" : self.move,
+            "inventory" : self.check_inventory
+        }
 
     def __str__(self):
         return json.dumps(self.__dict__)
 
-    def _move(self, direction):
+    def move(self, command):
+        direction = command[1]
         if direction in self._location._barriers:
             if self._location._barriers[direction]._open: 
                 self._location = self._objDict[self._location._connections[direction]] #give player new location
@@ -34,7 +41,8 @@ class Player(GameObject):
 
         return "theres nothing that way for you"
 
-    def inventory(self):
+
+    def check_inventory(self, command):
         result = "You are holding: "
         for gameObjTag in self.tagInventory:
             result += self._objDict[gameObjTag]._sDesc
@@ -43,9 +51,13 @@ class Player(GameObject):
             
 
     def react(self, command):
+        '''
         if command[0] == 'move':
             if len(command) == 2:
-                return self._move(command[1])
+                return self.move(command[1])
             return "Move where?"
+        '''
+        #print(self.reactionMap[command[0]])
+        if command[0] in self.reactionMap: return self.reactionMap[command[0]](command)
         else: return "ERROR: command passed to 'Player' dispite no matching command"
     
