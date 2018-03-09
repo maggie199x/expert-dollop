@@ -32,13 +32,14 @@ class Player(GameObject):
 
             else: return self._location._barriers[direction]._sDesc
 
-
-            #return self._barriers[direction].react(player, ["m", direction])
-
-            #return reactionMap[self._tag](player, self, direction)
-
         return "theres nothing that way for you"
-        #return self._location.player_move(self, direction)
+
+    def inventory(self):
+        result = "You are holding: "
+        for gameObjTag in self.tagInventory:
+            result += self._objDict[gameObjTag]._sDesc
+        return result
+
             
 
     def react(self, command):

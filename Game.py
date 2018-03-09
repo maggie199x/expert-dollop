@@ -31,6 +31,7 @@ class Game:
             "open": self.inclusive_action,
             "get" : self.inclusive_action,
             "move": self.player_action,
+            "inventory": self.player_action
         }
         
         self.searchMap = {
@@ -127,7 +128,7 @@ class Game:
         for item in objects["items"]:
             self.items[item] = Item(**(objects["items"][item]))
             self.allObj[item] = self.items[item]
-        self.player = Player(self.locations, **(objects["player"]["player"]))
+        self.player = Player(self.allObj, **(objects["player"]["player"]))
 
         self.assemble_barriers(self.barriers)
         self.assemble_inventories(self.items)

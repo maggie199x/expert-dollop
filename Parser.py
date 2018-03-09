@@ -14,6 +14,8 @@ class Parser:
             "go":   "move",
             "m":    "move",
             "o":    "open",
+            "i":    "inventory",
+            "inv":  "inventory"
         }
         self.verb = "" 
         self.subject = ""
