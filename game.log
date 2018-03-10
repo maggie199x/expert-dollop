@@ -932,3 +932,9 @@
 2018-03-09 17:24:22,074:Game.py:[34m[40mperforming action ['open', 'door'][0m
 2018-03-09 17:24:24,344:Game.py:[34m[40mperforming action ['move', 's'][0m
 2018-03-09 17:24:51,206:Game.py:[34m[40mperforming action ['quit'][0m
+2018-03-09 17:33:51,354:Game.py:[30m[41mnew Game Started[0m
+2018-03-09 17:33:51,354:Location.py:[32m[40mNew Location Created: second_room[0m
+2018-03-09 17:33:51,354:Location.py:[32m[40mNew Location Created: first_room[0m
+2018-03-09 17:33:51,354:Barrier.py:[35m[40mNew Barrier Created : oak_door[0m
+2018-03-09 17:33:51,354:Player.py:[31m[40mNew Player Created: {'cell_key': <Item.Item object at 0x1023814a8>, 'second_room': <Location.Location object at 0x102381668>, 'oak_door': <Barrier.Barrier object at 0x1023815f8>, 'first_room': <Location.Location object at 0x102381630>}[0m
+2018-03-09 17:33:53,583:Game.py:[34m[40mperforming action ['quit'][0m
