@@ -16,6 +16,12 @@ from Parser import Parser
 #set up logging
 log = logging.getLogger('game.Game')
 
+#TODO: open door stopped working
+#TODO: Get Comments up to date
+
+
+
+
 class Game:
     """
         The Game.
@@ -51,7 +57,6 @@ class Game:
         self.barriers = {}
         self.items = {}
         self.allObj = {}
-        #self.initialize_objects()
 
     def command(self):
 
@@ -73,12 +78,9 @@ class Game:
         #searches for any item viewable by the player in the room
         # search room for matching objects
         result = []
-        inventory = self.player._location.inventory
-        #print(inventory)
-
+        inventory = self.allObj[self.player._location].inventory
         if searchTerm in inventory:
             for i in inventory[searchTerm]:
-
                 result.append(i)
 
         return result
@@ -98,60 +100,61 @@ class Game:
     def inclusive_action(self): 
 
         command = self.playerInput
-        #print(command)
         if len(command) < 2:
             return command[0] + " what?"
-
         foundObjects = self.inclusive_search(command[1])
         if len(foundObjects) == 1:
             return self.allObj[foundObjects[0]].react(self.player, self.playerInput)
         elif len(foundObjects) > 1: return "Which '" + command[1] + "'?" 
-        else: return "What is a '" + ' '.join(command[1]) + "'?"
+        else: return "What is a '" + command[1] + "'?"
 
     def quit(self):
         self.running = False
-        return "quitting"
+        return "quitting\n----------------------------------------------"
 
     def help(self):
         return "Welcome to the Tower, founded in D7A by The Architect. Current verbs: 'open, move'"
 
     ''' initializes all objects from GameObjects.json '''
     def initialize_objects(self):
+        args = {"GAME" : self}
         objects = json.load(open("GameObjects.json"))
         for location in objects["locations"]:
-            self.locations[location] = Location(**(objects["locations"][location]))
+            z = objects["locations"][location].copy()
+            z.update(args)
+            self.locations[location] = Location(**z)
             self.allObj[location] = self.locations[location]
         for barrier in objects["barriers"]:
-            self.barriers[barrier] = Barrier(**(objects["barriers"][barrier]))
-            #self.connect_barrier(self.barriers[barrier])
+            z = objects["barriers"][barrier].copy()
+            z.update(args)
+            self.barriers[barrier] = Barrier(**z)
             self.allObj[barrier] = self.barriers[barrier]
         for item in objects["items"]:
-            self.items[item] = Item(**(objects["items"][item]))
+            z = objects["items"][item].copy()
+            z.update(args)
+            self.items[item] = Item(**z)
             self.allObj[item] = self.items[item]
-        self.player = Player(self.allObj, **(objects["player"]["player"]))
+        z = objects["player"]["player"]
+        z.update(args)
+        self.player = Player(**z) 
 
-        self.assemble_barriers(self.barriers)
+        self.assemble_barriers()
         self.assemble_inventories(self.items)
         return True
 
     ''' ASSEMBLERS MUST BE CALLED BEFORE GAME CAN COMMENCE '''
-    def assemble_barriers(self, barDict): #first step
-        for key in barDict:
-            barrier = barDict[key]
+    def assemble_barriers(self): #first step
+        for key in self.barriers:
+            barrier = self.barriers[key]
             location = barrier._location
             for direction in barrier._connections:
                 location = self.locations[location].give_barrier(barrier, direction) 
+            
 
     def assemble_inventories(self, objDict): #second step
         for key in objDict:
             obj = objDict[key]
             self.allObj[obj._location].give_object(obj)
-        '''
-        for key in objDict:
-            #inventory = self.allObj[key].inventory
-            for tag in self.allObj[key].tagInventory:
-                objDict[key].give_object(self.allObj[tag])
-        '''
 
 def main():
 
@@ -170,10 +173,34 @@ def main():
         # Add console logging
         logging.getLogger('').addHandler(console)
 
-    print("-------------WELCOME HOME-------------")
+    print(intro_art2)
     game = Game()
     game.initialize_objects()
     game.run()
 
+intro_art2 = """
+----------------------------------------------
+    ██████╗ ███████╗██╗   ██╗██╗██╗         
+    ██╔══██╗██╔════╝██║   ██║██║██║         
+    ██║  ██║█████╗  ██║   ██║██║██║         
+    ██║  ██║██╔══╝  ╚██╗ ██╔╝██║██║         
+    ██████╔╝███████╗ ╚████╔╝ ██║███████╗    
+    ╚═════╝ ╚══════╝  ╚═══╝  ╚═╝╚══════╝    
+████████╗ ██████╗ ██╗    ██╗███████╗██████╗ 
+╚══██╔══╝██╔═══██╗██║    ██║██╔════╝██╔══██╗
+   ██║   ██║   ██║██║ █╗ ██║█████╗  ██████╔╝
+   ██║   ██║   ██║██║███╗██║██╔══╝  ██╔══██╗
+   ██║   ╚██████╔╝╚███╔███╔╝███████╗██║  ██║
+   ╚═╝    ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
+    ███████╗████████╗ █████╗ ██████╗        
+    ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗       
+    ███████╗   ██║   ███████║██████╔╝       
+    ╚════██║   ██║   ██╔══██║██╔══██╗       
+    ███████║   ██║   ██║  ██║██║  ██║       
+    ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝       
+            Pre-Alpha V0.0.1
+----------------------------------------------"""
+
 main()
+
 
