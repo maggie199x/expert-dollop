@@ -14,19 +14,11 @@ reactionMap = {}
 
 
 
-def second_room(location, player, command):
-    result = ""
-    #print(command[0])
-    if command[0] in location.baseMap: 
-        if command[0] == "move":
-            if command[1] == "n":
-                location._barriers["s"]._open = False
-                result = "\n\nThe door slams shut behind you."
-        return location.baseMap[command[0]]() + result
-    else: return "'" + location._tag + "' reaction ERROR"
+def second_room(location):
+    return location.base_react(location.game.playerInput)
 
-def first_room(location, player, command):
-    return location.base_react(command)
+def first_room(location):
+    return location.base_react(location.game.playerInput)
     
 
 reactionMap["second_room"] = second_room
@@ -52,18 +44,20 @@ class Location(GameObject):
     def base_react(self, command):
         if command[0] in self.baseMap: return self.baseMap[command[0]]()
     
-    def react(self, player, command): 
-        return reactionMap[self._tag](self, player, command)
+    def react(self): 
+        return reactionMap[self._tag](self)
 
 
     def visit(self):
+        self.game.player._location = self._tag
+        print(self.game.player._location)
         if self._visited: return self._sDesc
         else: 
             self._visited = True
             return self._lDesc
 
     def give_barrier(self, barrier, direction):
-        self.tagInventory.append(barrier._tag)
+        self.give_object(barrier)
         self._barriers[direction] = barrier
         return self._connections[direction]
 
