@@ -4,10 +4,10 @@ from GameObject import GameObject
 
 reactionMap = {}
 
-def cell_key(item):
-	if item.game.playerInput[0] == "get":
-		item.game.allObj[item._location].remove_object(item)
-		item.game.player.give_object(item)
+def cell_key(item, player, command):
+	if command[0] == "get":
+		player._objDict[item._location].remove_object(item)
+		player.give_object(item)
 		return "you pick it up"
 
 	return "cell_key reaction"
@@ -23,7 +23,7 @@ class Item(GameObject):
         #self.react = reactionMap[kwargs["tag"]]
 
     def react(self, player, command):
-    	return reactionMap[self._tag](self)
+    	return reactionMap[self._tag](self, player, command)
     
 
 

@@ -3,7 +3,6 @@ import sys, traceback
 
 class GameObject(object):
     def __init__(self, **kwargs): 
-        self.game = kwargs["GAME"]
         
         self._tag = kwargs["tag"]
         self._lDesc = kwargs["long_description"]
@@ -20,7 +19,7 @@ class GameObject(object):
             if alias in self.inventory: self.inventory[alias].append(tag)
             else: self.inventory[alias] = [obj._tag]
 
-    def remove_object(self, obj): #TODO: The key is still in the inventory even though the value is an empty list
+    def remove_object(self, obj):
         '''takes object from self.inventory'''
         self.tagInventory.remove(obj._tag)
         for alias in obj.aliasList:

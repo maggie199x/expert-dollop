@@ -17,10 +17,11 @@ log = logging.getLogger('game.Player')
 #TODO: Change functions in reaction maps to take kwargs
 class Player(GameObject):
 
-    def __init__(self, **kwargs):
+    def __init__(self, objDict, **kwargs):
         super(Player, self).__init__(**kwargs)
-        log.info(console_color("New Player Created: {}".format(kwargs["GAME"].allObj), color="red"))
-        self._location = kwargs["location"]
+        log.info(console_color("New Player Created: {}".format(objDict), color="red"))
+        self._objDict = objDict
+        self._location = self._objDict[kwargs["location"]]
         self.reactionMap = {
             "move" : self.move,
             "inventory" : self.check_inventory
@@ -31,12 +32,12 @@ class Player(GameObject):
 
     def move(self, command):
         direction = command[1]
-        if direction in self.game.allObj[self._location]._barriers:
-            if self.game.allObj[self._location]._barriers[direction]._open: 
-                self._location = self.game.allObj[self.game.allObj[self._location]._connections[direction]] #give player new location
-                return self._location.react()
+        if direction in self._location._barriers:
+            if self._location._barriers[direction]._open: 
+                self._location = self._objDict[self._location._connections[direction]] #give player new location
+                return self._location.react(self, ["move", direction])
 
-            else: return self.game.allObj[self._location]._barriers[direction]._sDesc
+            else: return self._location._barriers[direction]._sDesc
 
         return "theres nothing that way for you"
 
@@ -44,12 +45,19 @@ class Player(GameObject):
     def check_inventory(self, command):
         result = "You are holding: "
         for gameObjTag in self.tagInventory:
-            result += self.game.allObj[gameObjTag]._sDesc
+            result += self._objDict[gameObjTag]._sDesc
         return result
 
             
 
     def react(self, command):
+        '''
+        if command[0] == 'move':
+            if len(command) == 2:
+                return self.move(command[1])
+            return "Move where?"
+        '''
+        #print(self.reactionMap[command[0]])
         if command[0] in self.reactionMap: return self.reactionMap[command[0]](command)
         else: return "ERROR: command passed to 'Player' dispite no matching command"
     
