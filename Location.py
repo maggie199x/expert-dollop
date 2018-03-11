@@ -2,7 +2,7 @@
 import json
 import logging
 import settings
-from util import console_color
+#from util import console_color
 
 
 from GameObject import GameObject
@@ -28,7 +28,7 @@ class Location(GameObject):
 
     def __init__(self, **kwargs): 
         super(Location, self).__init__(**kwargs)
-        log.info(console_color("New Location Created: {}".format(kwargs["tag"]), color="green"))
+        log.info("New Location Created: {}".format(kwargs["tag"]))
 
         self.baseMap = { "move" : self.visit }
 

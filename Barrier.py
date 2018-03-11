@@ -2,7 +2,7 @@
 import json
 import logging
 import settings
-from util import console_color
+#from util import console_color
 
 from GameObject import GameObject
 
@@ -27,25 +27,23 @@ reactionMap["oak_door"] = oak_door
 
 class Barrier(GameObject):
     def __init__(self, **kwargs): 
-        log.info(console_color("New Barrier Created : {}".format(kwargs["tag"]), color="purple"))
-        #print(kwargs["tag"])
+        super(Barrier, self).__init__(**kwargs)
         self._connections = kwargs["connections"]
         self._location = kwargs["location"]
         self._connectionNum = kwargs["connection_num"]
         if "open" in kwargs: self._open = kwargs["open"]
-
-        super(Barrier, self).__init__(**kwargs)
+        log.info("New Barrier Created : {}".format(kwargs["tag"]))
 
     def __str__(self):
         return json.dumps(self.__dict__)
 
     def react(self, player, action):
-        #print("react::" + self._tag)
+        log.info("{}.react()".format(self._tag))
         return reactionMap[self._tag](self, player, action)
 
 
     def open(self):
-        #print("barrier::open")
+        log.info("{}.open()".format(self._tag))
         if self._open:
             return "That's already open."
         else: 

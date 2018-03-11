@@ -1,6 +1,6 @@
 #!/usr/local/Cellar/python3
 import sys, traceback, logging
-from util import clear_screen, console_color
+from util import clear_screen#, console_color
 
 log = logging.getLogger('game.Game')
 
@@ -16,11 +16,11 @@ class GameObject(object):
         self.tagInventory = []
         self.inventory = {}
 
-        log.info(console_color("New GameObject Constructed: {}".format(self._tag), color='black', background='red'))
+        log.info("New GameObject Constructed: {}".format(self._tag))
 
     def give_object(self, obj):
         '''gives obj to self.inventory'''
-        log.info(console_color("{}.give_object({})".format(self._tag, obj._tag, color="green")))
+        log.info("{}.give_object({})".format(self._tag, obj._tag))
         self.tagInventory.append(obj._tag)
         for alias in obj.aliasList:
             if alias in self.inventory: self.inventory[alias].append(tag)
@@ -28,7 +28,7 @@ class GameObject(object):
 
     def remove_object(self, obj): #TODO: The key is still in the inventory even though the value is an empty list
         '''takes object from self.inventory'''
-        log.info(console_color("{}.remove_object()".format(self._tag, color="green")))
+        log.info("{}.remove_object({})".format(self._tag, obj._tag ))
         self.tagInventory.remove(obj._tag)
         for alias in obj.aliasList:
             self.inventory[alias].remove(obj._tag)

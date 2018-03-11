@@ -5,7 +5,7 @@ import platform
 import logging
 
 import settings
-from util import clear_screen, console_color
+from util import clear_screen#, console_color
 
 class Parser:
     def __init__(self):

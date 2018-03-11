@@ -1,16 +1,22 @@
 #!/usr/local/Cellar/python3
-import GameObject
 from GameObject import GameObject
+
+import logging
+import settings
+#from util import console_color
+
+
+log = logging.getLogger('game.Player')
 
 reactionMap = {}
 
 def cell_key(item):
-	if item.game.playerInput[0] == "get":
-		item.game.allObj[item._location].remove_object(item)
-		item.game.player.give_object(item)
-		return "you pick it up"
+    if item.game.playerInput[0] == "get":
+        item.game.allObj[item._location].remove_object(item)
+        item.game.player.give_object(item)
+        return "you pick it up"
 
-	return "cell_key reaction"
+    return "cell_key reaction"
 
 reactionMap["cell_key"] = cell_key
 
@@ -20,10 +26,12 @@ class Item(GameObject):
         super(Item, self).__init__(**kwargs)
         if "pick_up" in kwargs: self.pickup = kwargs["pick_up"]
         self._location = kwargs["location"]
-        #self.react = reactionMap[kwargs["tag"]]
+        
+        log.info("New Item Created: {}".format(kwargs["tag"]))
 
-    def react(self, player, command):
-    	return reactionMap[self._tag](self)
+    def react(self, player, command): #TODO: remove need for player and command
+        log.info("{}.react({})".format(self._tag, command))
+        return reactionMap[self._tag](self)
     
 
 

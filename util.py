@@ -39,5 +39,7 @@ def console_color(message, **kwargs):
         "cyan": "\033[46m",
         "lightgrey": "\033[47m"
     }
-
-    return "".join([colors[color], background_colors[background], message, colors["end"]])
+    return message
+    '''
+    #return "".join([colors[color], background_colors[background], message, colors["end"]])
+    '''
