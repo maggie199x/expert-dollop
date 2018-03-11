@@ -16,7 +16,6 @@ from Parser import Parser
 #set up logging
 log = logging.getLogger('game.Game')
 
-#TODO: open door stopped working
 #TODO: Get Comments up to date
 
 
@@ -27,8 +26,8 @@ class Game:
         The Game.
     """
     def __init__(self):
-       
-        log.info(console_color("new Game Started", color='black', background='red'))
+        #test
+        log.info(console_color("new Game Constructed", color='black', background='red'))
 
         # Mapping of input commands to functions
         self.reactionMap = {
@@ -36,6 +35,7 @@ class Game:
             "quit": self.quit,
             "open": self.inclusive_action,
             "get" : self.inclusive_action,
+
             "move": self.player_action,
             "inventory": self.player_action
         }
@@ -59,6 +59,7 @@ class Game:
         self.allObj = {}
 
     def command(self):
+        log.info(console_color("command()", color="green"))
 
         inputText = ""
         while len(inputText) < 1:
@@ -77,6 +78,7 @@ class Game:
     def inclusive_search(self, searchTerm):
         #searches for any item viewable by the player in the room
         # search room for matching objects
+        log.info(console_color("inclusive_search()", color="green"))
         result = []
         inventory = self.allObj[self.player._location].inventory
         if searchTerm in inventory:
@@ -86,19 +88,21 @@ class Game:
         return result
 
     def run(self):
+        log.info(console_color("run()", color="green"))
         while(self.running):
             self.command()
 
-    #is this still used?
     def player_action(self):
+        log.info(console_color("player_action()", color="green"))
         return self.player.react(self.playerInput) 
 
 
     def exit_game(self):
+        log.info(console_color("exit_game()", color="green"))
         self._running = False
 
     def inclusive_action(self): 
-
+        log.info(console_color("inclusive_action()", color="green"))
         command = self.playerInput
         if len(command) < 2:
             return command[0] + " what?"
@@ -109,14 +113,17 @@ class Game:
         else: return "What is a '" + command[1] + "'?"
 
     def quit(self):
+        log.info(console_color("quit()", color="green"))
         self.running = False
         return "quitting\n----------------------------------------------"
 
     def help(self):
-        return "Welcome to the Tower, founded in D7A by The Architect. Current verbs: 'open, move'"
+        log.info(console_color("help()", color="green"))
+        return "Welcome to the Tower, founded in D7A by The Architect. Current verbs: 'open, move, get'"
 
     ''' initializes all objects from GameObjects.json '''
     def initialize_objects(self):
+        log.info(console_color("Game::initialize_objects()", color="green"))
         args = {"GAME" : self}
         objects = json.load(open("GameObjects.json"))
         for location in objects["locations"]:
@@ -144,6 +151,7 @@ class Game:
 
     ''' ASSEMBLERS MUST BE CALLED BEFORE GAME CAN COMMENCE '''
     def assemble_barriers(self): #first step
+        log.info(console_color("assemble_barriers()", color="green"))
         for key in self.barriers:
             barrier = self.barriers[key]
             location = barrier._location
@@ -152,6 +160,7 @@ class Game:
             
 
     def assemble_inventories(self, objDict): #second step
+        log.info(console_color("assemble_inventories()", color="green"))
         for key in objDict:
             obj = objDict[key]
             self.allObj[obj._location].give_object(obj)

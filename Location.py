@@ -47,10 +47,8 @@ class Location(GameObject):
     def react(self): 
         return reactionMap[self._tag](self)
 
-
     def visit(self):
         self.game.player._location = self._tag
-        print(self.game.player._location)
         if self._visited: return self._sDesc
         else: 
             self._visited = True
@@ -60,15 +58,3 @@ class Location(GameObject):
         self.give_object(barrier)
         self._barriers[direction] = barrier
         return self._connections[direction]
-
-    def player_move(self, player, direction):
-        '''
-        if direction in self._connections:
-            if direction in self._barriers:
-                return self._barriers[direction].react(player, ["m", direction])
-
-            return reactionMap[self._tag](player, self, direction)
-        return "there's nothing but death that way" '''
-
-    
-
