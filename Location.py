@@ -8,7 +8,11 @@ import settings
 from GameObject import GameObject
 from Barrier import Barrier
 
-log = logging.getLogger('game.Location')
+log = logging.getLogger(__name__)
+
+file_handler = logging.FileHandler('_logs/Location.log')
+
+log.addHandler(file_handler)
 
 reactionMap = {}
 

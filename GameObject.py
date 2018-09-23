@@ -2,7 +2,11 @@
 import sys, traceback, logging
 from util import clear_screen#, console_color
 
-log = logging.getLogger('game.Game')
+log = logging.getLogger(__name__)
+
+file_handler = logging.FileHandler('_logs/GameObject.log')
+
+log.addHandler(file_handler)
 
 class GameObject(object):
     def __init__(self, **kwargs): 

@@ -46,7 +46,6 @@ class Player(GameObject):
     def move(self, command):
         log.info("{}.move({})".format(self._tag, command))
         direction = command[1]
-        print(self.game.allObj[self._location]._barriers)
         if direction in self.game.allObj[self._location]._barriers:
             print("test")
             if self.game.allObj[self._location]._barriers[direction]._open:

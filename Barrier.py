@@ -6,7 +6,11 @@ import settings
 
 from GameObject import GameObject
 
-log = logging.getLogger('game.Barrier')
+log = logging.getLogger(__name__)
+
+file_handler = logging.FileHandler('_logs/Barrier.log')
+
+log.addHandler(file_handler)
 
 #TODO: Make a base react so that each object is not required to have unique interactions.
 

@@ -6,7 +6,11 @@ import settings
 #from util import console_color
 
 
-log = logging.getLogger('game.Player')
+log = logging.getLogger(__name__)
+
+file_handler = logging.FileHandler('_logs/Item.log')
+
+log.addHandler(file_handler)
 
 reactionMap = {}
 
