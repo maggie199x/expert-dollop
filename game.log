@@ -1,0 +1,285 @@
+2018-09-23 12:18:42,500:	Game.py:	new Game Constructed
+2018-09-23 12:18:42,500:	Game.py:	initialize_objects()
+2018-09-23 12:18:42,500:	GameObject.py:	New GameObject Constructed: first_room
+2018-09-23 12:18:42,500:	Location.py:	New Location Created: first_room
+2018-09-23 12:18:42,501:	GameObject.py:	New GameObject Constructed: second_room
+2018-09-23 12:18:42,501:	Location.py:	New Location Created: second_room
+2018-09-23 12:18:42,501:	GameObject.py:	New GameObject Constructed: oak_door
+2018-09-23 12:18:42,501:	Barrier.py:	New Barrier Created : oak_door
+2018-09-23 12:18:42,501:	GameObject.py:	New GameObject Constructed: cell_key
+2018-09-23 12:18:42,501:	Item.py:	New Item Created: cell_key
+2018-09-23 12:18:42,501:	GameObject.py:	New GameObject Constructed: player
+2018-09-23 12:18:42,501:	Player.py:	New Player Created: player
+2018-09-23 12:18:42,501:	Game.py:	assemble_barriers()
+2018-09-23 12:18:42,501:	GameObject.py:	first_room.give_object(oak_door)
+2018-09-23 12:18:42,501:	GameObject.py:	second_room.give_object(oak_door)
+2018-09-23 12:18:42,501:	Game.py:	assemble_inventories()
+2018-09-23 12:18:42,501:	GameObject.py:	first_room.give_object(cell_key)
+2018-09-23 12:18:42,501:	Game.py:	run()
+2018-09-23 12:18:42,501:	Game.py:	command()
+2018-09-23 12:18:46,333:	Game.py:	performing action ['open', 'door']
+2018-09-23 12:18:46,333:	Game.py:	inclusive_action()
+2018-09-23 12:18:46,334:	Player.py:	search(door)
+2018-09-23 12:25:59,331:	Game.py:	new Game Constructed
+2018-09-23 12:25:59,331:	Game.py:	initialize_objects()
+2018-09-23 12:25:59,332:	GameObject.py:	New GameObject Constructed: second_room
+2018-09-23 12:25:59,332:	Location.py:	New Location Created: second_room
+2018-09-23 12:25:59,332:	GameObject.py:	New GameObject Constructed: first_room
+2018-09-23 12:25:59,332:	Location.py:	New Location Created: first_room
+2018-09-23 12:25:59,332:	GameObject.py:	New GameObject Constructed: oak_door
+2018-09-23 12:25:59,332:	Barrier.py:	New Barrier Created : oak_door
+2018-09-23 12:25:59,332:	GameObject.py:	New GameObject Constructed: cell_key
+2018-09-23 12:25:59,332:	Item.py:	New Item Created: cell_key
+2018-09-23 12:25:59,332:	GameObject.py:	New GameObject Constructed: player
+2018-09-23 12:25:59,332:	Player.py:	New Player Created: player
+2018-09-23 12:25:59,332:	Game.py:	assemble_barriers()
+2018-09-23 12:25:59,332:	GameObject.py:	first_room.give_object(oak_door)
+2018-09-23 12:25:59,332:	GameObject.py:	second_room.give_object(oak_door)
+2018-09-23 12:25:59,332:	Game.py:	assemble_inventories()
+2018-09-23 12:25:59,332:	GameObject.py:	first_room.give_object(cell_key)
+2018-09-23 12:25:59,332:	Game.py:	run()
+2018-09-23 12:25:59,332:	Game.py:	command()
+2018-09-23 12:26:02,160:	Game.py:	performing action ['open', 'door']
+2018-09-23 12:26:02,161:	Game.py:	inclusive_action()
+2018-09-23 12:26:02,161:	Player.py:	search(door)
+2018-09-23 12:26:02,161:	Barrier.py:	oak_door.react()
+2018-09-23 12:26:02,161:	Barrier.py:	oak_door.open()
+2018-09-23 12:26:02,161:	Game.py:	command()
+2018-09-23 12:26:36,199:	Game.py:	performing action ['quit']
+2018-09-23 12:26:36,199:	Game.py:	quit()
+2018-09-23 12:26:37,516:	Game.py:	new Game Constructed
+2018-09-23 12:26:37,516:	Game.py:	initialize_objects()
+2018-09-23 12:26:37,516:	GameObject.py:	New GameObject Constructed: second_room
+2018-09-23 12:26:37,517:	Location.py:	New Location Created: second_room
+2018-09-23 12:26:37,517:	GameObject.py:	New GameObject Constructed: first_room
+2018-09-23 12:26:37,517:	Location.py:	New Location Created: first_room
+2018-09-23 12:26:37,517:	GameObject.py:	New GameObject Constructed: oak_door
+2018-09-23 12:26:37,517:	Barrier.py:	New Barrier Created : oak_door
+2018-09-23 12:26:37,517:	GameObject.py:	New GameObject Constructed: cell_key
+2018-09-23 12:26:37,517:	Item.py:	New Item Created: cell_key
+2018-09-23 12:26:37,517:	GameObject.py:	New GameObject Constructed: player
+2018-09-23 12:26:37,517:	Player.py:	New Player Created: player
+2018-09-23 12:26:37,517:	Game.py:	assemble_barriers()
+2018-09-23 12:26:37,517:	GameObject.py:	first_room.give_object(oak_door)
+2018-09-23 12:26:37,517:	GameObject.py:	second_room.give_object(oak_door)
+2018-09-23 12:26:37,517:	Game.py:	assemble_inventories()
+2018-09-23 12:26:37,517:	GameObject.py:	first_room.give_object(cell_key)
+2018-09-23 12:26:37,517:	Game.py:	run()
+2018-09-23 12:26:37,517:	Game.py:	command()
+2018-09-23 12:26:39,587:	Game.py:	performing action ['open', 'door']
+2018-09-23 12:26:39,587:	Game.py:	inclusive_action()
+2018-09-23 12:26:39,587:	Player.py:	search(door)
+2018-09-23 12:26:39,587:	Barrier.py:	oak_door.react()
+2018-09-23 12:26:39,588:	Barrier.py:	oak_door.open()
+2018-09-23 12:26:39,588:	Game.py:	command()
+2018-09-23 12:26:42,799:	Game.py:	performing action ['move', 'north']
+2018-09-23 12:26:42,799:	Game.py:	exclusive_action()
+2018-09-23 12:26:42,799:	Player.py:	player.react(['move', 'north'])
+2018-09-23 12:26:42,799:	Player.py:	player.move(['move', 'north'])
+2018-09-23 12:26:42,799:	Game.py:	command()
+2018-09-23 12:26:47,021:	Game.py:	performing action ['move', 'south']
+2018-09-23 12:26:47,021:	Game.py:	exclusive_action()
+2018-09-23 12:26:47,021:	Player.py:	player.react(['move', 'south'])
+2018-09-23 12:26:47,021:	Player.py:	player.move(['move', 'south'])
+2018-09-23 12:26:47,022:	Game.py:	command()
+2018-09-23 12:26:52,234:	Game.py:	performing action ['move', 'east']
+2018-09-23 12:26:52,234:	Game.py:	exclusive_action()
+2018-09-23 12:26:52,234:	Player.py:	player.react(['move', 'east'])
+2018-09-23 12:26:52,234:	Player.py:	player.move(['move', 'east'])
+2018-09-23 12:26:52,234:	Game.py:	command()
+2018-09-23 12:26:54,797:	Game.py:	performing action ['move', 'west']
+2018-09-23 12:26:54,797:	Game.py:	exclusive_action()
+2018-09-23 12:26:54,797:	Player.py:	player.react(['move', 'west'])
+2018-09-23 12:26:54,797:	Player.py:	player.move(['move', 'west'])
+2018-09-23 12:26:54,797:	Game.py:	command()
+2018-09-23 12:26:56,597:	Game.py:	performing action ['quit']
+2018-09-23 12:26:56,597:	Game.py:	quit()
+2018-09-23 12:34:22,278:	Game.py:	new Game Constructed
+2018-09-23 12:34:22,279:	Game.py:	initialize_objects()
+2018-09-23 12:34:22,279:	GameObject.py:	New GameObject Constructed: first_room
+2018-09-23 12:34:22,279:	Location.py:	New Location Created: first_room
+2018-09-23 12:34:22,279:	GameObject.py:	New GameObject Constructed: second_room
+2018-09-23 12:34:22,279:	Location.py:	New Location Created: second_room
+2018-09-23 12:34:22,279:	GameObject.py:	New GameObject Constructed: oak_door
+2018-09-23 12:34:22,279:	Barrier.py:	New Barrier Created : oak_door
+2018-09-23 12:34:22,280:	GameObject.py:	New GameObject Constructed: cell_key
+2018-09-23 12:34:22,280:	Item.py:	New Item Created: cell_key
+2018-09-23 12:34:22,280:	GameObject.py:	New GameObject Constructed: player
+2018-09-23 12:34:22,280:	Player.py:	New Player Created: player
+2018-09-23 12:34:22,280:	Game.py:	assemble_barriers()
+2018-09-23 12:34:22,280:	GameObject.py:	first_room.give_object(oak_door)
+2018-09-23 12:34:22,280:	GameObject.py:	second_room.give_object(oak_door)
+2018-09-23 12:34:22,280:	Game.py:	assemble_inventories()
+2018-09-23 12:34:22,280:	GameObject.py:	first_room.give_object(cell_key)
+2018-09-23 12:34:22,280:	Game.py:	run()
+2018-09-23 12:34:22,280:	Game.py:	command()
+2018-09-23 12:34:24,464:	Game.py:	performing action ['open', 'door']
+2018-09-23 12:34:24,465:	Game.py:	inclusive_action()
+2018-09-23 12:34:24,465:	Player.py:	search(door)
+2018-09-23 12:34:24,465:	Barrier.py:	oak_door.react()
+2018-09-23 12:34:24,465:	Barrier.py:	oak_door.open()
+2018-09-23 12:34:24,465:	Game.py:	command()
+2018-09-23 12:34:26,266:	Game.py:	performing action ['open', 'door']
+2018-09-23 12:34:26,267:	Game.py:	inclusive_action()
+2018-09-23 12:34:26,267:	Player.py:	search(door)
+2018-09-23 12:34:26,267:	Barrier.py:	oak_door.react()
+2018-09-23 12:34:26,267:	Barrier.py:	oak_door.open()
+2018-09-23 12:34:26,267:	Game.py:	command()
+2018-09-23 12:34:31,156:	Game.py:	performing action ['move', 'north']
+2018-09-23 12:34:31,157:	Game.py:	exclusive_action()
+2018-09-23 12:34:31,157:	Player.py:	player.react(['move', 'north'])
+2018-09-23 12:34:31,157:	Player.py:	player.move(['move', 'north'])
+2018-09-23 12:34:31,157:	Game.py:	command()
+2018-09-23 12:35:18,258:	Game.py:	performing action ['move', 'south']
+2018-09-23 12:35:18,259:	Game.py:	exclusive_action()
+2018-09-23 12:35:18,259:	Player.py:	player.react(['move', 'south'])
+2018-09-23 12:35:18,259:	Player.py:	player.move(['move', 'south'])
+2018-09-23 12:35:18,259:	Game.py:	command()
+2018-09-23 12:35:44,993:	Game.py:	performing action ['quit']
+2018-09-23 12:35:44,993:	Game.py:	quit()
+2018-09-23 12:35:46,746:	Game.py:	new Game Constructed
+2018-09-23 12:35:46,746:	Game.py:	initialize_objects()
+2018-09-23 12:35:46,746:	GameObject.py:	New GameObject Constructed: second_room
+2018-09-23 12:35:46,746:	Location.py:	New Location Created: second_room
+2018-09-23 12:35:46,746:	GameObject.py:	New GameObject Constructed: first_room
+2018-09-23 12:35:46,746:	Location.py:	New Location Created: first_room
+2018-09-23 12:35:46,746:	GameObject.py:	New GameObject Constructed: oak_door
+2018-09-23 12:35:46,746:	Barrier.py:	New Barrier Created : oak_door
+2018-09-23 12:35:46,747:	GameObject.py:	New GameObject Constructed: cell_key
+2018-09-23 12:35:46,747:	Item.py:	New Item Created: cell_key
+2018-09-23 12:35:46,747:	GameObject.py:	New GameObject Constructed: player
+2018-09-23 12:35:46,747:	Player.py:	New Player Created: player
+2018-09-23 12:35:46,747:	Game.py:	assemble_barriers()
+2018-09-23 12:35:46,747:	GameObject.py:	first_room.give_object(oak_door)
+2018-09-23 12:35:46,747:	GameObject.py:	second_room.give_object(oak_door)
+2018-09-23 12:35:46,747:	Game.py:	assemble_inventories()
+2018-09-23 12:35:46,747:	GameObject.py:	first_room.give_object(cell_key)
+2018-09-23 12:35:46,747:	Game.py:	run()
+2018-09-23 12:35:46,747:	Game.py:	command()
+2018-09-23 12:35:49,150:	Game.py:	performing action ['open', 'door']
+2018-09-23 12:35:49,150:	Game.py:	inclusive_action()
+2018-09-23 12:35:49,150:	Player.py:	search(door)
+2018-09-23 12:35:49,150:	Barrier.py:	oak_door.react()
+2018-09-23 12:35:49,150:	Barrier.py:	oak_door.open()
+2018-09-23 12:35:49,150:	Game.py:	command()
+2018-09-23 12:35:51,655:	Game.py:	performing action ['move', 'north']
+2018-09-23 12:35:51,655:	Game.py:	exclusive_action()
+2018-09-23 12:35:51,656:	Player.py:	player.react(['move', 'north'])
+2018-09-23 12:35:51,656:	Player.py:	player.move(['move', 'north'])
+2018-09-23 12:35:51,656:	Game.py:	command()
+2018-09-23 12:35:54,724:	Game.py:	performing action ['move', 'south']
+2018-09-23 12:35:54,724:	Game.py:	exclusive_action()
+2018-09-23 12:35:54,724:	Player.py:	player.react(['move', 'south'])
+2018-09-23 12:35:54,724:	Player.py:	player.move(['move', 'south'])
+2018-09-23 12:35:54,724:	Game.py:	command()
+2018-09-23 12:36:16,602:	Game.py:	performing action ['quit']
+2018-09-23 12:36:16,603:	Game.py:	quit()
+2018-09-23 12:36:18,430:	Game.py:	new Game Constructed
+2018-09-23 12:36:18,430:	Game.py:	initialize_objects()
+2018-09-23 12:36:18,430:	GameObject.py:	New GameObject Constructed: second_room
+2018-09-23 12:36:18,430:	Location.py:	New Location Created: second_room
+2018-09-23 12:36:18,430:	GameObject.py:	New GameObject Constructed: first_room
+2018-09-23 12:36:18,430:	Location.py:	New Location Created: first_room
+2018-09-23 12:36:18,430:	GameObject.py:	New GameObject Constructed: oak_door
+2018-09-23 12:36:18,430:	Barrier.py:	New Barrier Created : oak_door
+2018-09-23 12:36:18,430:	GameObject.py:	New GameObject Constructed: cell_key
+2018-09-23 12:36:18,431:	Item.py:	New Item Created: cell_key
+2018-09-23 12:36:18,431:	GameObject.py:	New GameObject Constructed: player
+2018-09-23 12:36:18,431:	Player.py:	New Player Created: player
+2018-09-23 12:36:18,431:	Game.py:	assemble_barriers()
+2018-09-23 12:36:18,431:	GameObject.py:	first_room.give_object(oak_door)
+2018-09-23 12:36:18,431:	GameObject.py:	second_room.give_object(oak_door)
+2018-09-23 12:36:18,431:	Game.py:	assemble_inventories()
+2018-09-23 12:36:18,431:	GameObject.py:	first_room.give_object(cell_key)
+2018-09-23 12:36:18,431:	Game.py:	run()
+2018-09-23 12:36:18,431:	Game.py:	command()
+2018-09-23 12:36:23,413:	Game.py:	performing action ['open', 'door']
+2018-09-23 12:36:23,413:	Game.py:	inclusive_action()
+2018-09-23 12:36:23,413:	Player.py:	search(door)
+2018-09-23 12:36:23,413:	Barrier.py:	oak_door.react()
+2018-09-23 12:36:23,413:	Barrier.py:	oak_door.open()
+2018-09-23 12:36:23,413:	Game.py:	command()
+2018-09-23 12:36:25,957:	Game.py:	performing action ['move', 'north']
+2018-09-23 12:36:25,958:	Game.py:	exclusive_action()
+2018-09-23 12:36:25,958:	Player.py:	player.react(['move', 'north'])
+2018-09-23 12:36:25,958:	Player.py:	player.move(['move', 'north'])
+2018-09-23 12:36:25,958:	Game.py:	command()
+2018-09-23 12:36:31,074:	Game.py:	performing action ['move', 'south']
+2018-09-23 12:36:31,074:	Game.py:	exclusive_action()
+2018-09-23 12:36:31,074:	Player.py:	player.react(['move', 'south'])
+2018-09-23 12:36:31,075:	Player.py:	player.move(['move', 'south'])
+2018-09-23 12:36:31,075:	Game.py:	command()
+2018-09-23 12:37:14,303:	Game.py:	command()
+2018-09-23 12:37:16,585:	Game.py:	performing action ['quit']
+2018-09-23 12:37:16,585:	Game.py:	quit()
+2018-09-23 12:37:18,529:	Game.py:	new Game Constructed
+2018-09-23 12:37:18,529:	Game.py:	initialize_objects()
+2018-09-23 12:37:18,530:	GameObject.py:	New GameObject Constructed: second_room
+2018-09-23 12:37:18,530:	Location.py:	New Location Created: second_room
+2018-09-23 12:37:18,530:	GameObject.py:	New GameObject Constructed: first_room
+2018-09-23 12:37:18,530:	Location.py:	New Location Created: first_room
+2018-09-23 12:37:18,530:	GameObject.py:	New GameObject Constructed: oak_door
+2018-09-23 12:37:18,530:	Barrier.py:	New Barrier Created : oak_door
+2018-09-23 12:37:18,530:	GameObject.py:	New GameObject Constructed: cell_key
+2018-09-23 12:37:18,530:	Item.py:	New Item Created: cell_key
+2018-09-23 12:37:18,530:	GameObject.py:	New GameObject Constructed: player
+2018-09-23 12:37:18,530:	Player.py:	New Player Created: player
+2018-09-23 12:37:18,530:	Game.py:	assemble_barriers()
+2018-09-23 12:37:18,530:	GameObject.py:	first_room.give_object(oak_door)
+2018-09-23 12:37:18,531:	GameObject.py:	second_room.give_object(oak_door)
+2018-09-23 12:37:18,531:	Game.py:	assemble_inventories()
+2018-09-23 12:37:18,531:	GameObject.py:	first_room.give_object(cell_key)
+2018-09-23 12:37:18,531:	Game.py:	run()
+2018-09-23 12:37:18,531:	Game.py:	command()
+2018-09-23 12:37:21,844:	Game.py:	performing action ['open', 'door']
+2018-09-23 12:37:21,844:	Game.py:	inclusive_action()
+2018-09-23 12:37:21,844:	Player.py:	search(door)
+2018-09-23 12:37:21,844:	Barrier.py:	oak_door.react()
+2018-09-23 12:37:21,844:	Barrier.py:	oak_door.open()
+2018-09-23 12:37:21,845:	Game.py:	command()
+2018-09-23 12:37:23,820:	Game.py:	performing action ['move', 'north']
+2018-09-23 12:37:23,820:	Game.py:	exclusive_action()
+2018-09-23 12:37:23,820:	Player.py:	player.react(['move', 'north'])
+2018-09-23 12:37:23,820:	Player.py:	player.move(['move', 'north'])
+2018-09-23 12:39:55,000:	Game.py:	new Game Constructed
+2018-09-23 12:39:55,000:	Game.py:	initialize_objects()
+2018-09-23 12:39:55,000:	GameObject.py:	New GameObject Constructed: second_room
+2018-09-23 12:39:55,000:	Location.py:	New Location Created: second_room
+2018-09-23 12:39:55,000:	GameObject.py:	New GameObject Constructed: first_room
+2018-09-23 12:39:55,001:	Location.py:	New Location Created: first_room
+2018-09-23 12:39:55,001:	GameObject.py:	New GameObject Constructed: oak_door
+2018-09-23 12:39:55,001:	Barrier.py:	New Barrier Created : oak_door
+2018-09-23 12:39:55,001:	GameObject.py:	New GameObject Constructed: cell_key
+2018-09-23 12:39:55,001:	Item.py:	New Item Created: cell_key
+2018-09-23 12:39:55,001:	GameObject.py:	New GameObject Constructed: player
+2018-09-23 12:39:55,001:	Player.py:	New Player Created: player
+2018-09-23 12:39:55,001:	Game.py:	assemble_barriers()
+2018-09-23 12:39:55,001:	GameObject.py:	first_room.give_object(oak_door)
+2018-09-23 12:39:55,001:	GameObject.py:	second_room.give_object(oak_door)
+2018-09-23 12:39:55,001:	Game.py:	assemble_inventories()
+2018-09-23 12:39:55,001:	GameObject.py:	first_room.give_object(cell_key)
+2018-09-23 12:39:55,001:	Game.py:	run()
+2018-09-23 12:39:55,001:	Game.py:	command()
+2018-09-23 12:39:57,512:	Game.py:	performing action ['open', 'door']
+2018-09-23 12:39:57,512:	Game.py:	inclusive_action()
+2018-09-23 12:39:57,512:	Player.py:	search(door)
+2018-09-23 12:39:57,513:	Barrier.py:	oak_door.react()
+2018-09-23 12:39:57,513:	Barrier.py:	oak_door.open()
+2018-09-23 12:39:57,513:	Game.py:	command()
+2018-09-23 12:40:02,157:	Game.py:	performing action ['move', 'north']
+2018-09-23 12:40:02,157:	Game.py:	exclusive_action()
+2018-09-23 12:40:02,157:	Player.py:	player.react(['move', 'north'])
+2018-09-23 12:40:02,157:	Player.py:	player.move(['move', 'north'])
+2018-09-23 12:40:02,157:	Game.py:	command()
+2018-09-23 12:40:09,102:	Game.py:	performing action ['move', 'n']
+2018-09-23 12:40:09,102:	Game.py:	exclusive_action()
+2018-09-23 12:40:09,103:	Player.py:	player.react(['move', 'n'])
+2018-09-23 12:40:09,103:	Player.py:	player.move(['move', 'n'])
+2018-09-23 12:40:09,103:	Game.py:	command()
+2018-09-23 12:40:12,516:	Game.py:	performing action ['move', 's']
+2018-09-23 12:40:12,516:	Game.py:	exclusive_action()
+2018-09-23 12:40:12,516:	Player.py:	player.react(['move', 's'])
+2018-09-23 12:40:12,517:	Player.py:	player.move(['move', 's'])
+2018-09-23 12:40:12,517:	Game.py:	command()
+2018-09-23 12:41:07,024:	Game.py:	performing action ['quit']
+2018-09-23 12:41:07,024:	Game.py:	quit()

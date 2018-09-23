@@ -18,8 +18,8 @@ IE. the player moves into a new room, and the door shuts behind him. '''
 
 reactionMap = {}
 
-def oak_door(barrier, player, command):
-    if command[0] == "open":
+def oak_door(barrier):
+    if barrier.game.playerInput[0] == "open":
         return barrier.open()
 
 
@@ -37,9 +37,9 @@ class Barrier(GameObject):
     def __str__(self):
         return json.dumps(self.__dict__)
 
-    def react(self, player, action):
+    def react(self):
         log.info("{}.react()".format(self._tag))
-        return reactionMap[self._tag](self, player, action)
+        return reactionMap[self._tag](self)
 
 
     def open(self):

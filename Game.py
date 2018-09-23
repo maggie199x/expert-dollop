@@ -5,7 +5,7 @@ import platform
 import logging
 
 import settings
-from util import clear_screen#, console_color
+from util import clear_screen
 
 from Player import Player
 from Location import Location
@@ -36,14 +36,9 @@ class Game:
             "open": self.inclusive_action,
             "get" : self.inclusive_action,
 
-            "move": self.player_action,
-            "inventory": self.player_action
+            "move": self.exclusive_action,
+            "inventory": self.exclusive_action
         }
-        
-        self.searchMap = {
-            "open": self.inclusive_search,
-        }
-
         # Mapping of possible inputs to commands
         
 
@@ -58,13 +53,16 @@ class Game:
         self.items = {}
         self.allObj = {}
 
+    def run(self):
+        log.info("run()")
+        while(self.running):
+            self.command()
+
     def command(self):
         log.info("command()")
-
         inputText = ""
         while len(inputText) < 1:
             inputText = input("@> ")
-        
         inputList = self.parser.parse_command(inputText)
         self.playerInput = inputList
         verb = inputList[0]
@@ -74,26 +72,8 @@ class Game:
         else: 
             print('The Architect will be happy to help you. If you need assistance, say "help"')
 
-
-    def inclusive_search(self, searchTerm):
-        #searches for any item viewable by the player in the room
-        # search room for matching objects
-        log.info("inclusive_search()")
-        result = []
-        inventory = self.allObj[self.player._location].inventory
-        if searchTerm in inventory:
-            for i in inventory[searchTerm]:
-                result.append(i)
-
-        return result
-
-    def run(self):
-        log.info("run()")
-        while(self.running):
-            self.command()
-
-    def player_action(self):
-        log.info("player_action()")
+    def exclusive_action(self):
+        log.info("exclusive_action()")
         return self.player.react(self.playerInput) 
 
 
@@ -106,9 +86,10 @@ class Game:
         command = self.playerInput
         if len(command) < 2:
             return command[0] + " what?"
-        foundObjects = self.inclusive_search(command[1])
+        foundObjects = self.player.search(command[1])
+        print(foundObjects)
         if len(foundObjects) == 1:
-            return self.allObj[foundObjects[0]].react(self.player, self.playerInput)
+            return self.allObj[foundObjects[0]].react()
         elif len(foundObjects) > 1: return "Which '" + command[1] + "'?" 
         else: return "What is a '" + command[1] + "'?"
 

@@ -16,7 +16,7 @@ def cell_key(item):
         item.game.player.give_object(item)
         return "you pick it up"
 
-    return "cell_key reaction"
+    return "ERROR: command passed to 'Item' dispite no matching command"
 
 reactionMap["cell_key"] = cell_key
 
@@ -29,8 +29,8 @@ class Item(GameObject):
         
         log.info("New Item Created: {}".format(kwargs["tag"]))
 
-    def react(self, player, command): #TODO: remove need for player and command
-        log.info("{}.react({})".format(self._tag, command))
+    def react(self): 
+        log.info("{}.react()".format(self._tag))
         return reactionMap[self._tag](self)
     
 

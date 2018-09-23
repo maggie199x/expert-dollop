@@ -30,11 +30,26 @@ class Player(GameObject):
     def __str__(self):
         return json.dumps(self.__dict__)
 
+    def search(self, searchTerm):
+        #searches for any item viewable by the player in the room
+        # search room for matching objects
+        #TODO: Handle container searching
+        log.info("search(" +searchTerm + ")")
+        result = []
+        inventory = self.game.allObj[self._location].inventory
+        if searchTerm in inventory:
+            for i in inventory[searchTerm]:
+                result.append(i)
+
+        return result
+
     def move(self, command):
         log.info("{}.move({})".format(self._tag, command))
         direction = command[1]
+        print(self.game.allObj[self._location]._barriers)
         if direction in self.game.allObj[self._location]._barriers:
-            if self.game.allObj[self._location]._barriers[direction]._open: 
+            print("test")
+            if self.game.allObj[self._location]._barriers[direction]._open:
                 self._location = self.game.allObj[self.game.allObj[self._location]._connections[direction]] #give player new location
                 return self._location.react()
 
