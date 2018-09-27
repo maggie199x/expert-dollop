@@ -15,14 +15,29 @@ log.addHandler(file_handler)
 reactionMap = {}
 
 def cell_key(item):
+    #TODO: make a general function for actions like "get"
+    log.info("{}: cell_key reaction".format(item._tag))
     if item.game.playerInput[0] == "get":
         item.game.allObj[item._location].remove_object(item)
         item.game.player.give_object(item)
         return "you pick it up"
 
-    return "ERROR: command passed to 'Item' dispite no matching command"
+    log.error("ERROR: command passed to 'Item' dispite no matching command")
+    return "Nothing happens."
+
+def door_key(item):
+    #TODO: make a general function for actions like "get"
+    log.info("{}: door_key reaction".format(item._tag))
+    if item.game.playerInput[0] == "get":
+        item.game.allObj[item._location].remove_object(item)
+        item.game.player.give_object(item)
+        return "you pick it up"
+
+    log.error("ERROR: command passed to 'Item' dispite no matching command")
+    return "Nothing happens."
 
 reactionMap["cell_key"] = cell_key
+reactionMap["door_key"] = door_key
 
 class Item(GameObject):
 

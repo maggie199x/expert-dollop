@@ -37,15 +37,24 @@
       "connections": [
         "n",
         "s"
-      ]
+      ],
+      "lock": 1
     }
   },
   "items": {
+    "door_key": {
+      "tag": "door_key",
+      "location": "first_room",
+      "alias_list": ["key", "old key", "antique key"],
+      "short_description": "an old key",
+      "long_description": "an antique metal key.",
+      "pick_up": 1
+    },
     "cell_key": {
       "tag": "cell_key",
       "location": "first_room",
       "alias_list": ["key", "rusty key"],
-      "short_description": "a key",
+      "short_description": "a rusty key",
       "long_description": "a rusty key, old and ugly and blah blah blah",
       "pick_up": 1
     }

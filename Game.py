@@ -20,6 +20,9 @@ log = logging.getLogger('game.Game')
 
 #TODO: Get Comments up to date
 
+'''TODO: All reactions should recieve the player input, simplified to its core elements, and replaceing used item alias
+with their corrisponding tags'''
+
 
 
 
@@ -38,6 +41,7 @@ class Game:
             "open": self.inclusive_action,
             "get" : self.inclusive_action,
 
+            "drop": self.exclusive_action,
             "move": self.exclusive_action,
             "inventory": self.exclusive_action
         }
@@ -89,7 +93,7 @@ class Game:
         if len(command) < 2:
             return command[0] + " what?"
         foundObjects = self.player.search(command[1])
-        print(foundObjects)
+        #print(foundObjects)
         if len(foundObjects) == 1:
             return self.allObj[foundObjects[0]].react()
         elif len(foundObjects) > 1: return "Which '" + command[1] + "'?" 

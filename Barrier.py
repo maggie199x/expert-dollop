@@ -35,7 +35,9 @@ class Barrier(GameObject):
         self._connections = kwargs["connections"]
         self._location = kwargs["location"]
         self._connectionNum = kwargs["connection_num"]
+
         if "open" in kwargs: self._open = kwargs["open"]
+        if "lock" in kwargs: self._lock = kwargs["lock"]
         log.info("New Barrier Created : {}".format(kwargs["tag"]))
 
     def __str__(self):
@@ -51,6 +53,8 @@ class Barrier(GameObject):
         if self._open:
             return "That's already open."
         else: 
+            if self._lock:
+                return "That's locked."
             self._open = True
             return "You open it."
 

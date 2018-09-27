@@ -27,7 +27,7 @@ class GameObject(object):
         log.info("{}.give_object({})".format(self._tag, obj._tag))
         self.tagInventory.append(obj._tag)
         for alias in obj.aliasList:
-            if alias in self.inventory: self.inventory[alias].append(tag)
+            if alias in self.inventory: self.inventory[alias].append(obj._tag)
             else: self.inventory[alias] = [obj._tag]
 
     def remove_object(self, obj): #TODO: The key is still in the inventory even though the value is an empty list

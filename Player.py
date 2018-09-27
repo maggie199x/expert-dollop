@@ -5,7 +5,6 @@ import settings
 #from util import console_color
 
 from GameObject import GameObject
-
 log = logging.getLogger('game.Player')
 
 
@@ -23,6 +22,7 @@ class Player(GameObject):
         self._location = kwargs["location"]
         self.reactionMap = {
             "move" : self.move,
+            "drop" : self.drop,
             "inventory" : self.check_inventory
         }
 
@@ -56,6 +56,18 @@ class Player(GameObject):
 
         return "theres nothing that way for you"
 
+    def drop(self, command): #TODO: FINISH DROP FUNCTION
+        log.info("{}.drop({})".format(self._tag, command)) #logging
+        result = "You drop "
+        toDrop = [] 
+        for alias in command[1:]: 
+            log.info("drop: {}".format(alias))
+            toDrop.append(self.inventory.get(alias, "none"))
+        log.info("dropList: {}".format(toDrop))
+        #for i in toDrop:
+
+        return result
+
 
     def check_inventory(self, command):
         log.info("{}.check_inventory({})".format(self._tag, command))
@@ -69,5 +81,7 @@ class Player(GameObject):
     def react(self, command):
         log.info("{}.react({})".format(self._tag, command))
         if command[0] in self.reactionMap: return self.reactionMap[command[0]](command)
-        else: return "ERROR: command passed to 'Player' dispite no matching command"
+        else: 
+            log.error("ERROR: command passed to 'Player' dispite no matching command")
+            return "Nothing happens."
     
