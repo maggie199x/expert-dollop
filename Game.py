@@ -70,6 +70,7 @@ class Game:
         while len(inputText) < 1:
             inputText = input("@> ")
         inputList = self.parser.parse_command(inputText)
+        log.info("Parsed_command: {}".format(inputList))
         self.playerInput = inputList
         verb = inputList[0]
         if verb in self.reactionMap: 

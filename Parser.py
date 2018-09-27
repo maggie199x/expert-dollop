@@ -15,15 +15,20 @@ class Parser:
             "m":    "move",
             "o":    "open",
             "i":    "inventory",
-            "inv":  "inventory"
+            "inv":  "inventory",
+            "north": "n",
+            "south": "s",
+            "east": "e",
+            "west": "w"
         }
         self.verb = "" 
         self.subject = ""
 
     def parse_command(self, inputText):
         splitText = inputText.lower().split()
+        splitText = self.dealias(splitText)
         result = []
-        self.verb = self.extract_verb(splitText)
+        self.verb = splitText[0]#self.extract_verb(splitText)
         self.subject = self.extract_subject(splitText)
         if self.verb: result.append(self.verb)
         if self.subject: result.append(self.subject)
@@ -43,12 +48,15 @@ class Parser:
                 indexToDelete = [i] + indexToDelete #adding to beggning of list if element is 'the'
             i += 2
 
-        #print(indexToDelete)
         for element in indexToDelete:
             splitText.pop(element)
-
         return ' '.join(splitText[1:])
 
+    def dealias(self, splitText):
+        for i in range(0, len(splitText)):
+            word = splitText[i]
+            splitText[i] = self.aliasMap.get(word, word)
+        return splitText
 
 
 def main():

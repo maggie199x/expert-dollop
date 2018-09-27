@@ -47,7 +47,6 @@ class Player(GameObject):
         log.info("{}.move({})".format(self._tag, command))
         direction = command[1]
         if direction in self.game.allObj[self._location]._barriers:
-            print("test")
             if self.game.allObj[self._location]._barriers[direction]._open:
                 self._location = self.game.allObj[self.game.allObj[self._location]._connections[direction]] #give player new location
                 return self._location.react()
@@ -65,6 +64,7 @@ class Player(GameObject):
             toDrop.append(self.inventory.get(alias, "none"))
         log.info("dropList: {}".format(toDrop))
         #for i in toDrop:
+
 
         return result
 
