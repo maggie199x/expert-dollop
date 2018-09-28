@@ -7,8 +7,17 @@ import logging
 import settings
 from util import clear_screen
 
+log = logging.getLogger(__name__)
+log.setLevel("INFO")
+
+
+file_handler = logging.FileHandler('_logs/Parser.log')
+
+log.addHandler(file_handler)
+
 class Parser:
     def __init__(self):
+        log.info("New Parser initialized")
         self.aliasMap = {
             "exit": "quit",
             "go":   "move",
@@ -21,8 +30,13 @@ class Parser:
             "east": "e",
             "west": "w"
         }
+
+        self.conjunction = "and"
+        self.prepositionList = ["with", "at", "from", "into", "against", "towards", "to", "in", "on", 
+        "through", "over", "between", "across", "behind", "beyond", ]
         self.verb = "" 
         self.subject = ""
+        log.info("Initialization complete")
 
     def parse_command(self, inputText):
         splitText = inputText.lower().split()
